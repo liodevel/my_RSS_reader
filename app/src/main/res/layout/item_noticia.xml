@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#ffe8dada"
+        android:padding="8dp"
+        android:id="@+id/relative_layout_noticia">
+
+        <TextView
+            android:id="@+id/titulo_noticia"
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:gravity="left"
+            android:textSize="18sp"
+            android:maxLines="3"
+            android:lines="3"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/category_noticia"
+            android:layout_toStartOf="@+id/category_noticia" />
+
+        <TextView
+            android:id="@+id/autor_noticia"
+            android:layout_width="wrap_content"
+            android:layout_height="26dp"
+            android:gravity="bottom|right"
+            android:textSize="12sp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true" />
+
+        <TextView
+            android:id="@+id/link_noticia"
+            android:layout_width="wrap_content"
+            android:layout_height="26dp"
+            android:gravity="bottom|right"
+            android:textSize="12sp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true" />
+        <TextView
+            android:id="@+id/category_noticia"
+            android:layout_width="wrap_content"
+            android:textSize="30sp"
+            android:padding="4dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:gravity="right|top"
+            android:textColor="#838e73"
+            android:layout_alignParentEnd="true"
+            android:layout_above="@+id/link_noticia" />
+
+    </RelativeLayout>
+
+
+</LinearLayout>

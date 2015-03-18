@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.liodevel.my_reader.ManageFeedsActivity">
+
+    <item
+        android:id="@+id/action_new_feed"
+        android:title="@string/action_example"
+        android:showAsAction="withText|ifRoom"
+        android:icon="@drawable/ic_action_new" />
+
+</menu>

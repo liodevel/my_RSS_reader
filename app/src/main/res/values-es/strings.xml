@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name"> Mi Lector RSS</string>
+
+    <string name="navigation_drawer_open">Abrir categorias</string>
+    <string name="navigation_drawer_close">Cerrar categorias</string>
+    <string name="action_example">Actualizar</string>
+    <string name="action_settings">Opciones</string>
+    <string name="manage_feeds">Añadir RSS</string>
+    <string name="feeds_browser">Categorias</string>
+    <string name="clear_news">Borrar noticias</string>
+    <string name="title_activity_noticia">Nueva</string>
+    <string name="title_activity_manage_feeds">Añadir RSS</string>
+    <string name="title_activity_new_feed">Nueva suscripción</string>
+    <string name="title_activity_collection">CollectionActivity</string>
+
+
+    <string name="title_section1">Arte</string>
+    <string name="title_section2">Libros</string>
+    <string name="title_section3">Negocios</string>
+    <string name="title_section4">Coches</string>
+    <string name="title_section5">Diseño</string>
+    <string name="title_section6">Fama</string>
+    <string name="title_section7">Comida</string>
+    <string name="title_section8">Humor</string>
+    <string name="title_section9">Juegos</string>
+    <string name="title_section10">Historias</string>
+    <string name="title_section11">Internet</string>
+    <string name="title_section12">Música</string>
+    <string name="title_section13">Noticias</string>
+    <string name="title_section14">Fotografía</string>
+    <string name="title_section15">Política</string>
+    <string name="title_section16">Ciencia</string>
+    <string name="title_section17">Deportes</string>
+    <string name="title_section18">Estilo</string>
+    <string name="title_section19">TV y Cine</string>
+    <string name="title_section20">Tecnología</string>
+
+
+
+    <string name="no_news">Sin noticias...\nDeslizar hacia abajo para actualizar</string>
+    <string name="name">Nombre</string>
+    <string name="url">URL</string>
+    <string name="open">ABRIR</string>
+    <string name="add">Añadir</string>
+    <string name="swipe_to_delete">Deslizar para borrar</string>
+    <string name="accept">Aceptar</string>
+
+    <string name="no_feeds_config">No ha canales RSS</string>
+    <string name="browse_categories">Ver categorias</string>
+    <string name="add_feeds">Añadir suscripción RSS</string>
+
+
+
+</resources>

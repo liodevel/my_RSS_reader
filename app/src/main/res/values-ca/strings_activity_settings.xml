@@ -1,0 +1,32 @@
+<resources>
+    <string name="title_activity_settings">Opcions</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">General</string>
+
+
+    <string name="pref_delete_readed">Esborrar notícies llegides</string>
+    <string name="pref_description_delete_readed">Les notícies llegides s`esborraran automàticament</string>
+
+    <string name="pref_feeds">Feeds</string>
+    <string name="pref_description_feeds">Add the RSS feeds to download</string>
+
+
+    <string-array name="empty_array" />
+
+    <string-array name="array_feeds">
+        <item>Menéame</item>
+        <item>Genbeta Dev</item>
+        <item>Finofilipino</item>
+    </string-array>
+
+    <string-array name="array_feeds_values">
+        <item>http://meneame.feedsportal.com/rss</item>
+        <item>http://www.genbetadev.com/index.xml</item>
+        <item>http://finofilipino.org/rss</item>
+    </string-array>
+
+
+</resources>
