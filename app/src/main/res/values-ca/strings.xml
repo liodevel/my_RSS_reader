@@ -49,6 +49,7 @@
 
     <string name="no_feeds_config">Sense canals RSS</string>
     <string name="browse_categories">Veure categories</string>
+    <string name="last_update">Darrera actualització: </string>
     <string name="add_feeds">Afegir subscripció RSS</string>
 
 

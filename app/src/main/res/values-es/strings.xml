@@ -49,6 +49,7 @@
 
     <string name="no_feeds_config">No ha canales RSS</string>
     <string name="browse_categories">Ver categorias</string>
+    <string name="last_update">Última actualización: </string>
     <string name="add_feeds">Añadir suscripción RSS</string>
 
 
