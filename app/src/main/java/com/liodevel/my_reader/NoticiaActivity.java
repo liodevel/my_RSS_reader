@@ -13,7 +13,6 @@ import android.webkit.WebView;
 import android.widget.TextView;
 
 import com.liodevel.my_reader.Utils.StaticObjects;
-import com.mopub.mobileads.MoPubView;
 
 public class NoticiaActivity extends Activity {
 

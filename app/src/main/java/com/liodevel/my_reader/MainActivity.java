@@ -38,7 +38,6 @@ import com.liodevel.my_reader.Utils.RSSUtils;
 import com.liodevel.my_reader.Utils.StaticCollections;
 import com.liodevel.my_reader.Utils.StaticObjects;
 
-import com.mopub.common.MoPub;
 import io.fabric.sdk.android.Fabric;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -88,7 +87,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Fabric.with(this, new Crashlytics(), new MoPub());
+        Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_main);
 
         // Recuperar prederences
