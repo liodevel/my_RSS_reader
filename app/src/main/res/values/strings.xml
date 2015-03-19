@@ -11,7 +11,7 @@
     <string name="feeds_browser">Categories</string>
     <string name="clear_news">Clear News</string>
     <string name="title_activity_noticia">New</string>
-    <string name="title_activity_manage_feeds">Add RSS</string>
+    <string name="title_activity_manage_feeds">My Feeds</string>
     <string name="title_activity_new_feed">New Feed</string>
     <string name="title_activity_collection">CollectionActivity</string>
 
@@ -50,7 +50,8 @@
     <string name="no_feeds_config">No RSS added!</string>
     <string name="browse_categories">Browse categories</string>
     <string name="last_update">Last update: </string>
-    <string name="add_feeds">Add feeds by URL</string>
+    <string name="add_feeds">Add my Feeds</string>
+
 
 
 

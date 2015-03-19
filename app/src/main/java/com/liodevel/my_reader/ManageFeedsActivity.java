@@ -45,7 +45,8 @@ public class ManageFeedsActivity extends Activity {
         actionBarTittle.setTextColor(Color.WHITE);
         actionBarTittle.setTypeface(tf);
 
-        this.setTitle("Manage Feeds");
+        this.setTitle(getResources().getString(R.string.title_activity_manage_feeds));
+
 
         /// Preparar Lista
         currentActivity = this;

@@ -7,11 +7,11 @@
     <string name="navigation_drawer_close">Cerrar categorias</string>
     <string name="action_example">Actualizar</string>
     <string name="action_settings">Opciones</string>
-    <string name="manage_feeds">Añadir RSS</string>
+    <string name="manage_feeds">Mis suscripciones</string>
     <string name="feeds_browser">Categorias</string>
     <string name="clear_news">Borrar noticias</string>
     <string name="title_activity_noticia">Nueva</string>
-    <string name="title_activity_manage_feeds">Añadir RSS</string>
+    <string name="title_activity_manage_feeds">Mis suscripciones</string>
     <string name="title_activity_new_feed">Nueva suscripción</string>
     <string name="title_activity_collection">CollectionActivity</string>
 
@@ -50,7 +50,7 @@
     <string name="no_feeds_config">No ha canales RSS</string>
     <string name="browse_categories">Ver categorias</string>
     <string name="last_update">Última actualización: </string>
-    <string name="add_feeds">Añadir suscripción RSS</string>
+    <string name="add_feeds">Añadir mis suscripciones</string>
 
 
 

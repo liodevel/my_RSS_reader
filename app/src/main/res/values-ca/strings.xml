@@ -7,7 +7,7 @@
     <string name="navigation_drawer_close">Tancar categories</string>
     <string name="action_example">Actualitzar</string>
     <string name="action_settings">Opcions</string>
-    <string name="manage_feeds">Afegir RSS</string>
+    <string name="manage_feeds">Les meves subscripcions</string>
     <string name="feeds_browser">Categories</string>
     <string name="clear_news">Esborrar notícies</string>
     <string name="title_activity_noticia">Nova</string>
@@ -50,7 +50,7 @@
     <string name="no_feeds_config">Sense canals RSS</string>
     <string name="browse_categories">Veure categories</string>
     <string name="last_update">Darrera actualització: </string>
-    <string name="add_feeds">Afegir subscripció RSS</string>
+    <string name="add_feeds">Afegir les meves subscripcions</string>
 
 
 
