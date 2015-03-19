@@ -47,7 +47,7 @@
     <string name="swipe_to_delete">Deslizar para borrar</string>
     <string name="accept">Aceptar</string>
 
-    <string name="no_feeds_config">No ha canales RSS</string>
+    <string name="no_feeds_config">No hay canales RSS</string>
     <string name="browse_categories">Ver categorias</string>
     <string name="last_update">Última actualización: </string>
     <string name="add_feeds">Añadir mis suscripciones</string>

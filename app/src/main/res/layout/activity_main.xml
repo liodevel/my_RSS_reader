@@ -33,7 +33,7 @@
             android:layout_gravity="top"
             android:layout_marginTop="60dp"
             android:gravity="center"
-            android:textSize="40sp" />
+            android:textSize="30sp" />
 
         <TextView
             android:id="@+id/text_no_feeds"
@@ -43,7 +43,7 @@
             android:text="@string/no_feeds_config"
             android:layout_gravity="center"
             android:gravity="center"
-            android:textSize="40sp"
+            android:textSize="30sp"
             android:layout_marginTop="20dp"
             android:layout_below="@+id/text_no_news"
             android:layout_alignParentLeft="true"
@@ -59,7 +59,7 @@
             android:padding="6dp"
             android:textSize="30sp"
             android:textColor="#ffe8dada"
-            android:background="#838e73"
+            android:background="#ff6b788e"
             android:layout_gravity="center"
             android:layout_margin="6dp"
             android:layout_centerVertical="true"
@@ -75,7 +75,7 @@
             android:padding="6dp"
             android:textSize="30sp"
             android:textColor="#ffe8dada"
-            android:background="#838e73"
+            android:background="#ff6b788e"
             android:layout_gravity="center"
             android:layout_margin="6dp"
             android:layout_below="@+id/button_browse_categories"
