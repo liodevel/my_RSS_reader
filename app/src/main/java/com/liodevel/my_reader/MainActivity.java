@@ -716,8 +716,6 @@ public class MainActivity extends Activity {
         // Última Actualización
         StaticObjects.setUltimaActualizacion(this.prefs.getLong("ultima_actualizacion", 0));
         Log.i("--PREFS", "ultima_actualizacion = " + StaticObjects.getUltimaActualizacion());
-        String dateString = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss").format(new Date(StaticObjects.getUltimaActualizacion()));
-        lastUpdate.setText(getResources().getString(R.string.last_update) + dateString);
 
         // Array de Noticias
         Gson gsonNoticias = new Gson();
