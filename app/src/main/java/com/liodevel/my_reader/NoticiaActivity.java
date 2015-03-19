@@ -56,9 +56,9 @@ public class NoticiaActivity extends Activity {
 
         // Contenido Notícia
         String contenidoNoticia = "";
-        barraTituloNoticia = getIntent().getExtras().getString("contenidoFormNoticia");
+        contenidoNoticia = getIntent().getExtras().getString("contenidoFormNoticia");
         contenidoNoticiaView = (TextView) findViewById(R.id.contenido_noticia);
-        contenidoNoticiaView.setText(barraTituloNoticia);
+        contenidoNoticiaView.setText(contenidoNoticia);
         contenidoNoticiaView.setTypeface(tf);
 
         // Texto OPEN
