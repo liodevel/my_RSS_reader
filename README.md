@@ -1,17 +1,18 @@
 #TODOs
 
 - Implementar - Abrir app -vista de añadir Feed-  para guardar un feed clickado.
-- Añadir color a los canales de feeds
-- Mostrar imágenes en las noticias
+- Añadir color a los canales de feeds.
+- Mostrar imágenes en las noticias.
 - Implementar timeout para la actualización de noticias, que no se quede pillado cuando no hay cobertura.
-- Revisar colores
+- Revisar colores.
+- Pasar entre noticias deslizando la pantalla.
 
 
 #DOs
-- Crear Icono
-- Actualizar al pulsar botón
-- Actualizar al desplazar hacia abajo
-- Borrar noticia al desplazar
+- Crear Icono.
+- Actualizar al pulsar botón.
+- Actualizar al desplazar hacia abajo.
+- Borrar noticia al desplazar.
    http://stackoverflow.com/questions/19848610/need-help-to-implement-47degree-android-swipelistview
 - Guardar Feeds en el móvil
 - Mejorar pantalla de Noticia:

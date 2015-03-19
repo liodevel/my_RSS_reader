@@ -13,7 +13,7 @@ import android.webkit.WebView;
 import android.widget.TextView;
 
 import com.liodevel.my_reader.Utils.StaticObjects;
-
+import com.mopub.mobileads.MoPubView;
 
 public class NoticiaActivity extends Activity {
 
@@ -22,6 +22,8 @@ public class NoticiaActivity extends Activity {
     String barraTituloNoticia = "";
     String linkNoticia = "";
     String icono = "";
+
+    private static final String MOPUB_BANNER_AD_UNIT_ID = "2cc14d224b4a409ab2d25b9b130ac479";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
