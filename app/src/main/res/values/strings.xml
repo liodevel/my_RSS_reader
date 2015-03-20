@@ -2,6 +2,9 @@
 <resources>
 
     <string name="app_name"> My reader</string>
+    <string name="app_version"> 0.4</string>
+    <string name="app_web_site">www.liodevel.com</string>
+    <string name="app_desc"> Read your news with My Reader. Easy, fast and beauty</string>
 
     <string name="navigation_drawer_open">Open categories</string>
     <string name="navigation_drawer_close">Close categories</string>
@@ -14,8 +17,6 @@
     <string name="title_activity_manage_feeds">My Feeds</string>
     <string name="title_activity_new_feed">New Feed</string>
     <string name="title_activity_collection">CollectionActivity</string>
-
-
     <string name="title_section1">Art</string>
     <string name="title_section2">Books</string>
     <string name="title_section3">Business</string>
@@ -36,9 +37,6 @@
     <string name="title_section18">Style</string>
     <string name="title_section19">TV and Movies</string>
     <string name="title_section20">Technology</string>
-
-
-
     <string name="no_news">No news...\nSlide down to update</string>
     <string name="name">Name</string>
     <string name="url">URL</string>
@@ -46,13 +44,13 @@
     <string name="add">Add</string>
     <string name="swipe_to_delete">Swipe to delete</string>
     <string name="accept">Accept</string>
-
     <string name="no_feeds_config">No RSS added!</string>
     <string name="browse_categories">Browse categories</string>
     <string name="last_update">Last update: </string>
     <string name="add_feeds">Add my Feeds</string>
 
-
-
+    <string name="about">About</string>
+    <string name="title_activity_about">AboutActivity</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>

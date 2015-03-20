@@ -325,6 +325,8 @@ public class MainActivity extends Activity {
             currentActivity.startActivity(new Intent(currentActivity, ManageFeedsActivity.class));
         } else if (id == R.id.add_feeds) {
             currentActivity.startActivity(new Intent(currentActivity, CollectionActivity.class));
+        } else if (id == R.id.about) {
+            currentActivity.startActivity(new Intent(currentActivity, AboutActivity.class));
         } else if (id == R.id.clear_news) {
             // Actualizar StaticObjects
             StaticObjects.getArrayNoticias().clear();

@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.liodevel.my_reader">
+    package="com.liodevel.my_reader" >
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/liodevelTheme">
+        android:theme="@style/liodevelTheme" >
         <activity
-            android:name="com.liodevel.my_reader.MainActivity"
+            android:name=".MainActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/app_name"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,21 +22,21 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.liodevel.my_reader.NoticiaActivity"
+            android:name=".NoticiaActivity"
             android:label="@string/title_activity_noticia"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.liodevel.my_reader.SettingsActivity"
+            android:name=".SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.liodevel.my_reader.ManageFeedsActivity"
+            android:name=".ManageFeedsActivity"
             android:label="@string/title_activity_manage_feeds"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.liodevel.my_reader.NewFeedActivity"
+            android:name=".NewFeedActivity"
             android:label="@string/title_activity_new_feed"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -78,10 +79,12 @@
             android:value="e15eb1d693749d3b7bbafe66455bfbf9bb7fdbc4" />
 
         <activity
-            android:name="com.liodevel.my_reader.CollectionActivity"
-            android:label="@string/title_activity_collection"></activity>
-
+            android:name=".CollectionActivity"
+            android:label="@string/title_activity_collection" />
+        <activity
+            android:name=".AboutActivity"
+            android:label="@string/title_activity_about" >
+        </activity>
     </application>
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 </manifest>

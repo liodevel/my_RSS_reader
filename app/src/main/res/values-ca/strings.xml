@@ -3,6 +3,9 @@
 
     <string name="app_name"> Lector RSS</string>
 
+    <string name="app_desc"> Llegeix les notícies amb Lextor RSS. Senzill, ràpid i bonic.</string>
+
+
     <string name="navigation_drawer_open">Obrir categories</string>
     <string name="navigation_drawer_close">Tancar categories</string>
     <string name="action_example">Actualitzar</string>
@@ -53,5 +56,6 @@
     <string name="add_feeds">Afegir les meves subscripcions</string>
 
 
+    <string name="about">Sobre</string>
 
 </resources>

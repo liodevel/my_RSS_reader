@@ -3,6 +3,9 @@
 
     <string name="app_name"> Mi Lector RSS</string>
 
+    <string name="app_desc"> Lee tus noticias con Mi Lector RSS. Fácil, rápido y bonito</string>
+
+
     <string name="navigation_drawer_open">Abrir categorias</string>
     <string name="navigation_drawer_close">Cerrar categorias</string>
     <string name="action_example">Actualizar</string>
@@ -53,5 +56,6 @@
     <string name="add_feeds">Añadir mis suscripciones</string>
 
 
+    <string name="about">Acerda de</string>
 
 </resources>

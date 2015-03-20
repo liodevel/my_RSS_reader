@@ -6,6 +6,7 @@
 - Implementar timeout para la actualización de noticias, que no se quede pillado cuando no hay cobertura.
 - Revisar colores.
 - Pasar entre noticias deslizando la pantalla.
+- Pantalla "Acerca de".
 
 
 #DOs
@@ -13,7 +14,6 @@
 - Actualizar al pulsar botón.
 - Actualizar al desplazar hacia abajo.
 - Borrar noticia al desplazar.
-   http://stackoverflow.com/questions/19848610/need-help-to-implement-47degree-android-swipelistview
 - Guardar Feeds en el móvil
 - Mejorar pantalla de Noticia:
   - Mostrar título

@@ -30,5 +30,11 @@
         android:orderInCategory="100"
         android:showAsAction="never" />
 
+    <item
+        android:id="@+id/about"
+        android:title="@string/about"
+        android:orderInCategory="100"
+        android:showAsAction="never" />
+
 
 </menu>
