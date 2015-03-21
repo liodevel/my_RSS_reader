@@ -2,17 +2,26 @@ package com.liodevel.my_reader;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.webkit.WebView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.liodevel.my_reader.Utils.StaticObjects;
+
+import java.io.InputStream;
 
 public class NoticiaActivity extends Activity {
 
@@ -53,7 +62,6 @@ public class NoticiaActivity extends Activity {
         iconoView.setText(icono);
         iconoView.setTypeface(fa);
 
-
         // Contenido Notícia
         String contenidoNoticia = "";
         contenidoNoticia = getIntent().getExtras().getString("contenidoFormNoticia");
@@ -80,14 +88,48 @@ public class NoticiaActivity extends Activity {
 
         });
 
+
+        // Imagen Noticia
+        String imagenNoticia = "";
+        imagenNoticia = getIntent().getExtras().getString("imagen");
+        Log.i("IMAGEN", imagenNoticia);
+
         // WebView
-        /*
         webView = (WebView) findViewById(R.id.webViewNoticia);
-        webView.getSettings().setJavaScriptEnabled(true);
-        String httpContent = "Error";
-        httpContent = getIntent().getExtras().getString("httpContent");
-        webView.loadDataWithBaseURL("", httpContent, "text/html", "UTF-8", "");
-        */
+
+        if (imagenNoticia.contains("png") || imagenNoticia.contains("jpg") || imagenNoticia.contains("gif") || imagenNoticia.contains("jpeg")) {
+
+            // disable scroll on touch
+            webView.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    return (event.getAction() == MotionEvent.ACTION_MOVE);
+                }
+            });
+
+            String style = "style=\"-webkit-filter: grayscale(100%);\"";
+            webView.setVerticalScrollBarEnabled(false);
+            webView.setHorizontalScrollBarEnabled(false);
+            webView.loadDataWithBaseURL("", "<img src=\"" + imagenNoticia + "\" width=\"115%\"" + style + "></img>", "text/html", "UTF-8", "");
+            ViewTreeObserver viewTreeObserver = webView.getViewTreeObserver();
+            viewTreeObserver.addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
+                @Override
+                public boolean onPreDraw() {
+                    int height = webView.getMeasuredHeight();
+                    if (height != 0) {
+                        webView.getViewTreeObserver().removeOnPreDrawListener(this);
+                    }
+                    webView.scrollTo(30, 50);
+
+                    return false;
+                }
+            });
+        } else {
+            webView.getLayoutParams().height = 20;
+        }
+
+
+
     }
 
 
@@ -118,4 +160,6 @@ public class NoticiaActivity extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }

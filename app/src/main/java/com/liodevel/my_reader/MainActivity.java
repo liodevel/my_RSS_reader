@@ -207,6 +207,7 @@ public class MainActivity extends Activity {
                 noticiaActivity.putExtra("origenNoticia", StaticObjects.getArrayNoticias().get(position).getOrigen());
                 noticiaActivity.putExtra("contenidoFormNoticia", StaticObjects.getArrayNoticias().get(position).getContenidoFormateado());
                 noticiaActivity.putExtra("icono",StaticObjects.getArrayNoticias().get(position).getIcono());
+                noticiaActivity.putExtra("imagen",StaticObjects.getArrayNoticias().get(position).getImagenURL());
 
                 // Si DELETE READED está marcado se borra el elemento del array y se actualiza la lista
                 if (StaticObjects.isDelete_readed()) {
@@ -584,6 +585,9 @@ public class MainActivity extends Activity {
                 textoNoNews.setVisibility(View.INVISIBLE);
             }
         }
+
+
+
     }
 
 

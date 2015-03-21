@@ -1,18 +1,23 @@
 package com.liodevel.my_reader.Adapters;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.os.AsyncTask;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.liodevel.my_reader.Models.ItemNoticia;
 import com.liodevel.my_reader.R;
 import com.liodevel.my_reader.Utils.StaticObjects;
 
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
@@ -40,6 +45,7 @@ public class ItemNoticiaAdapter extends ArrayAdapter<Object> {
         TextView link;
         TextView origen;
         TextView category;
+        ImageView imagen;
 
         public static PlaceHolder generate(View convertView) {
             PlaceHolder placeHolder = new PlaceHolder();
@@ -87,6 +93,7 @@ public class ItemNoticiaAdapter extends ArrayAdapter<Object> {
             //Log.i("--LISTA_ADAPTER", "Noticia Leida en array: " + position);
             //convertView.findViewById(R.id.titulo_noticia).setBackgroundColor(Color.GREEN);
         }
+
 
         Typeface tf = Typeface.createFromAsset(context.getAssets(), StaticObjects.FONT_LIGHT);
         Typeface fa = Typeface.createFromAsset(context.getAssets(), StaticObjects.FONT_AWESOME);
@@ -185,6 +192,7 @@ public class ItemNoticiaAdapter extends ArrayAdapter<Object> {
 
         return (convertView);
     }
+
 
 
 }

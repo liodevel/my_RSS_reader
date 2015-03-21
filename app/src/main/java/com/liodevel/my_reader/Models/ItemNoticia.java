@@ -1,5 +1,6 @@
 package com.liodevel.my_reader.Models;
 
+import android.graphics.Bitmap;
 import android.util.Log;
 
 import com.liodevel.my_reader.Utils.RSSUtils;
@@ -17,6 +18,9 @@ public class ItemNoticia {
     String contenidoFormateado;
     String category;
     String icono;
+
+    String imagenURL;
+    Bitmap imagen;
 
     int orden;
     String id;
@@ -51,6 +55,7 @@ public class ItemNoticia {
         this.id = "";
         this.leida = false;
         this.category = "Custom";
+        this.imagenURL = "";
     }
 
     public ItemNoticia() {
@@ -65,6 +70,8 @@ public class ItemNoticia {
         this.id = "";
         this.leida = false;
         this.category = "Custom";
+        this.imagenURL = "";
+
     }
 
     public String getTitulo() {
@@ -162,5 +169,21 @@ public class ItemNoticia {
 
     public void setIcono(String icono) {
         this.icono = icono;
+    }
+
+    public String getImagenURL() {
+        return imagenURL;
+    }
+
+    public void setImagenURL(String imagenURL) {
+        this.imagenURL = imagenURL;
+    }
+
+    public Bitmap getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(Bitmap imagen) {
+        this.imagen = imagen;
     }
 }

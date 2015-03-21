@@ -5,6 +5,16 @@
     tools:context="com.liodevel.my_reader.Noticia"
     android:background="#ffe8dada">
 
+    <WebView
+        android:id="@+id/webViewNoticia"
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
+        android:background="#ffe8dada"
+        android:layout_below="@+id/titulo_noticia"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="-20dp" />
+
     <TextView
         android:id="@+id/titulo_noticia"
         android:layout_width="fill_parent"
@@ -18,7 +28,6 @@
         android:paddingLeft="6dp"
         android:paddingRight="6dp"
         android:background="#ffe8dada"
-
         android:gravity="center_vertical"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -47,6 +56,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
+
     <TextView
         android:id="@+id/contenido_noticia"
         android:layout_width="wrap_content"
@@ -65,7 +75,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_above="@+id/boton_abrir"
-        android:layout_below="@+id/titulo_noticia" />
+        android:layout_below="@+id/webViewNoticia" />
 
 
     <TextView
@@ -78,22 +88,10 @@
         android:layout_alignParentTop="true"
         android:gravity="center"
         android:textColor="#838e73"
+        android:background="#ffe8dada"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_alignBottom="@+id/titulo_noticia" />
 
-
-    <!--
-    <WebView
-        android:id="@+id/webViewNoticia"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_alignLeft="@+id/titulo_noticia"
-        android:layout_alignStart="@+id/titulo_noticia"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:background="@android:color/white"
-        android:layout_below="@+id/contenido_noticia" />
-        -->
 
 </RelativeLayout>

@@ -15,6 +15,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Utilidades RSS
@@ -114,6 +116,16 @@ public class RSSUtils {
             } else if (name.equals("description")) {
                 //Log.i("RSS_ITEM", "Desc encontrado");
                 noticia.setDescripcion(readDesc(parser));
+                //Log.i("---DESC", noticia.getDescripcion());
+
+                // Recuperar Source de la imagen, si hay
+                Pattern p = Pattern.compile("src\\s*=\\s*([\"'])?([^ \"']*)");
+                Matcher m = p.matcher(noticia.getDescripcion());
+                if (m.find()) {
+                    noticia.setImagenURL(m.group(2));
+                    Log.i("RSS_ITEM", "Imagen encontrada: " + noticia.getImagenURL());
+                }
+
             } else if (name.equals("pubDate")) {
                 //Log.i("RSS_ITEM", "Fecha encontrada");
                 noticia.setFechaPublicacion(readDate(parser));
@@ -125,12 +137,12 @@ public class RSSUtils {
                 noticia.setAutor(readAuthor(parser));
             } else if (name.equals("image")) {
                 //Log.i("RSS_ITEM", "Imagen encontrada");
-
+                //noticia.setImagenURL(readImage(parser));
             } else if (name.equals("guid")) {
-                Log.i("RSS_ITEM", "GUID encontrado");
+                //Log.i("RSS_ITEM", "GUID encontrado");
                 noticia.setId(readGuid(parser));
                 noticia.setOrigen(getOriginFromGuid(noticia.getId()));
-                Log.i("RSS_ITEM", "GUID encontrado: " + noticia.getId());
+                //Log.i("RSS_ITEM", "GUID encontrado: " + noticia.getId());
             } else {
                 skip(parser);
             }
@@ -246,6 +258,22 @@ public class RSSUtils {
         parser.require(XmlPullParser.START_TAG, "", "guid");
         String guid = readText(parser);
         parser.require(XmlPullParser.END_TAG, "", "guid");
+        return guid;
+    }
+
+    /**
+     * Leer Imagen del Feed
+     *
+     * @param parser
+     * @return Imagen del Feed
+     * @throws IOException
+     * @throws XmlPullParserException
+     */
+    public static String readImage(XmlPullParser parser) throws IOException, XmlPullParserException {
+
+        parser.require(XmlPullParser.START_TAG, "", "image");
+        String guid = readText(parser);
+        parser.require(XmlPullParser.END_TAG, "", "image");
         return guid;
     }
 
