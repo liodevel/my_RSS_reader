@@ -174,7 +174,7 @@ public class RSSUtils {
         parser.require(XmlPullParser.START_TAG, "", "title");
         String title = readText(parser);
         parser.require(XmlPullParser.END_TAG, "", "title");
-        Log.i("----TITLE", title);
+        //Log.i("----TITLE", title);
         return title;
     }
 
@@ -207,7 +207,7 @@ public class RSSUtils {
 
         parser.require(XmlPullParser.START_TAG, "", "pubDate");
         String fechaString = readText(parser);
-        Log.i("--FECHA", fechaString);
+        //Log.i("--FECHA", fechaString);
         Date date = stringToDate(fechaString);
         parser.require(XmlPullParser.END_TAG, "", "pubDate");
         return date;
@@ -361,7 +361,7 @@ public class RSSUtils {
             System.out.println(formatter.format(date));
 
         } catch (ParseException e) {
-            Log.w("--FECHA", "Error Fecha: " + stringDate);
+            //Log.w("--FECHA", "Error Fecha: " + stringDate);
 
             formatter = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz");
             date = new Date(0);

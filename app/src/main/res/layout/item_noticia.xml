@@ -8,7 +8,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:background="#ffe8dada"
+        android:background="#ffdcdcdc"
         android:padding="8dp"
         android:id="@+id/relative_layout_noticia">
 
@@ -51,7 +51,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
             android:gravity="right|top"
-            android:textColor="#838e73"
+            android:textColor="#ff387742"
             android:layout_alignParentEnd="true"
             android:layout_above="@+id/link_noticia" />
 

@@ -2,26 +2,20 @@ package com.liodevel.my_reader;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewTreeObserver;
 import android.webkit.WebView;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.liodevel.my_reader.Utils.StaticObjects;
 
-import java.io.InputStream;
 
 public class NoticiaActivity extends Activity {
 
@@ -31,7 +25,8 @@ public class NoticiaActivity extends Activity {
     String linkNoticia = "";
     String icono = "";
 
-    private static final String MOPUB_BANNER_AD_UNIT_ID = "2cc14d224b4a409ab2d25b9b130ac479";
+    // Banner Mopup
+    //private static final String MOPUB_BANNER_AD_UNIT_ID = "2cc14d224b4a409ab2d25b9b130ac479";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +37,7 @@ public class NoticiaActivity extends Activity {
         Typeface tf = Typeface.createFromAsset(getAssets(), StaticObjects.FONT_LIGHT);
         Typeface fa = Typeface.createFromAsset(getAssets(), StaticObjects.FONT_AWESOME);
 
-        // BARRA Título
+        // Action Bar
         int titleId = getResources().getIdentifier("action_bar_title", "id", "android");
         TextView actionBarTittle = (TextView) findViewById(titleId);
         this.setTitle(getIntent().getExtras().getString("origenNoticia"));
@@ -69,7 +64,7 @@ public class NoticiaActivity extends Activity {
         contenidoNoticiaView.setText(contenidoNoticia);
         contenidoNoticiaView.setTypeface(tf);
 
-        // Texto OPEN
+        // Botón OPEN
         botonAbrir = (TextView) findViewById(R.id.boton_abrir);
         botonAbrir.setTextColor(Color.WHITE);
         botonAbrir.setTypeface(tf);
@@ -80,25 +75,19 @@ public class NoticiaActivity extends Activity {
                 try {
                     Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getIntent().getExtras().getString("linkNoticia")));
                     startActivity(browserIntent);
-
-                } catch (Exception e) {
-
-                }
+                } catch (Exception e) {  }
             }
-
         });
 
 
         // Imagen Noticia
         String imagenNoticia = "";
         imagenNoticia = getIntent().getExtras().getString("imagen");
-        Log.i("IMAGEN", imagenNoticia);
+        Log.i("--IMAGEN--", imagenNoticia);
 
-        // WebView
         webView = (WebView) findViewById(R.id.webViewNoticia);
 
         if (imagenNoticia.contains("png") || imagenNoticia.contains("jpg") || imagenNoticia.contains("gif") || imagenNoticia.contains("jpeg")) {
-
             // disable scroll on touch
             webView.setOnTouchListener(new View.OnTouchListener() {
                 @Override
@@ -106,29 +95,19 @@ public class NoticiaActivity extends Activity {
                     return (event.getAction() == MotionEvent.ACTION_MOVE);
                 }
             });
-
-            String style = "style=\"-webkit-filter: grayscale(100%);\"";
+            // esconder Scrolls
             webView.setVerticalScrollBarEnabled(false);
             webView.setHorizontalScrollBarEnabled(false);
+
+            // Filtro blanco y negro
+            String style = "style=\"-webkit-filter: grayscale(100%);\"";
+
             webView.loadDataWithBaseURL("", "<img src=\"" + imagenNoticia + "\" width=\"115%\"" + style + "></img>", "text/html", "UTF-8", "");
-            ViewTreeObserver viewTreeObserver = webView.getViewTreeObserver();
-            viewTreeObserver.addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
-                @Override
-                public boolean onPreDraw() {
-                    int height = webView.getMeasuredHeight();
-                    if (height != 0) {
-                        webView.getViewTreeObserver().removeOnPreDrawListener(this);
-                    }
-                    webView.scrollTo(30, 50);
 
-                    return false;
-                }
-            });
         } else {
-            webView.getLayoutParams().height = 20;
+            webView.getLayoutParams().height = 0;
+            tituloNoticiaView.bringToFront();
         }
-
-
 
     }
 

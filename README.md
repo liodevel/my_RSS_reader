@@ -2,14 +2,18 @@
 
 - Implementar - Abrir app -vista de añadir Feed-  para guardar un feed clickado.
 - Añadir color a los canales de feeds.
-- Mostrar imágenes en las noticias.
 - Implementar timeout para la actualización de noticias, que no se quede pillado cuando no hay cobertura.
 - Revisar colores.
 - Pasar entre noticias deslizando la pantalla.
-- Pantalla "Acerca de".
+- Añadir opción de actualizar al inicio
 
 
 #DOs
+ 0.4 - Boniato
+- Mostrar imágenes en las noticias. (se podría mejorar)
+- Pantalla "Acerca de".
+
+ 0.3 - Alcachofa
 - Crear Icono.
 - Actualizar al pulsar botón.
 - Actualizar al desplazar hacia abajo.

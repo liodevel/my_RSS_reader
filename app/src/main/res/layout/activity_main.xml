@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="#ffe8dada"
+    android:background="#ffdcdcdc"
     >
 
     <!-- As the main content view, the view below consumes the entire
@@ -20,7 +20,7 @@
             android:id="@+id/lista_noticias_1"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
-            android:background="#ffe8dada"
+            android:background="#ffdcdcdc"
             android:layout_gravity="center_horizontal|bottom"
             android:layout_below="@+id/last_update" />
 
@@ -58,7 +58,7 @@
             android:gravity="center"
             android:padding="16dp"
             android:textSize="22sp"
-            android:textColor="#ffe8dada"
+            android:textColor="#ffdcdcdc"
             android:background="#ff6b788e"
             android:layout_gravity="center"
             android:layout_margin="6dp"
@@ -74,7 +74,7 @@
             android:gravity="center"
             android:padding="16dp"
             android:textSize="22sp"
-            android:textColor="#ffe8dada"
+            android:textColor="#ffdcdcdc"
             android:background="#ff6b788e"
             android:layout_gravity="center"
             android:layout_margin="6dp"
@@ -90,8 +90,8 @@
             android:gravity="left"
             android:padding="6dp"
             android:textSize="12sp"
-            android:textColor="#ffe8dada"
-            android:background="#838e73"
+            android:textColor="#ffdcdcdc"
+            android:background="#ff387742"
             android:layout_gravity="center"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true" />

@@ -9,7 +9,7 @@
     </style>
 
     <style name="lioActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
-        <item name="android:background">#838e73</item>
+        <item name="android:background">#ff387742</item>
     </style>
 
     <!-- Styles -->

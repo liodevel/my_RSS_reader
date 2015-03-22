@@ -23,13 +23,14 @@ public class AboutActivity extends Activity {
         // Tipografia
         tf = Typeface.createFromAsset(getAssets(), StaticObjects.FONT_LIGHT);
 
-        // Tipografia nombre App
+        // Action Bar
         int titleId = getResources().getIdentifier("action_bar_title", "id", "android");
         TextView actionBarTittle = (TextView) findViewById(titleId);
         actionBarTittle.setText(getResources().getString(R.string.about));
         actionBarTittle.setTextColor(Color.WHITE);
         actionBarTittle.setTypeface(tf);
 
+        // Texto Pantalla
         aboutTitle = (TextView) findViewById(R.id.about_title);
         aboutTitle.setTypeface(tf);
         aboutDesc = (TextView) findViewById(R.id.about_desc);
@@ -48,18 +49,4 @@ public class AboutActivity extends Activity {
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 }
