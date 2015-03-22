@@ -50,7 +50,6 @@
     <string name="add_feeds">Add my Feeds</string>
 
     <string name="about">About</string>
-    <string name="title_activity_about">AboutActivity</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_about">About</string>
 
 </resources>
