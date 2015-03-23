@@ -201,6 +201,12 @@ public class NoticiaActivity extends Activity {
         this.contenidoNoticiaView.setText(StaticObjects.getArrayNoticias().get(id).getContenidoFormateado());
         this.linkNoticia = StaticObjects.getArrayNoticias().get(id).getLink();
 
+        // ICONO
+
+        // LINK COMPARTIR
+
+
+
         String imagenNoticia = StaticObjects.getArrayNoticias().get(id).getImagenURL();
         webView.getLayoutParams().height = Math.round(200 * density + 0.5f);
         if (imagenNoticia.contains("png") || imagenNoticia.contains("jpg") || imagenNoticia.contains("gif") || imagenNoticia.contains("jpeg")) {
