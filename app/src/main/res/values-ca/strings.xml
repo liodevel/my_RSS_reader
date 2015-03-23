@@ -59,5 +59,7 @@
 
     <string name="about">Sobre</string>
     <string name="title_activity_about">Sobre</string>
+    <string name="previous_new">Notícia prèvia</string>
+    <string name="next_new">Notícia següent</string>
 
 </resources>

@@ -208,6 +208,7 @@ public class MainActivity extends Activity {
                 noticiaActivity.putExtra("contenidoFormNoticia", StaticObjects.getArrayNoticias().get(position).getContenidoFormateado());
                 noticiaActivity.putExtra("icono",StaticObjects.getArrayNoticias().get(position).getIcono());
                 noticiaActivity.putExtra("imagen",StaticObjects.getArrayNoticias().get(position).getImagenURL());
+                noticiaActivity.putExtra("idNoticia","" + position);
 
                 // Si DELETE READED está marcado se borra el elemento del array y se actualiza la lista
                 if (StaticObjects.isDelete_readed()) {
