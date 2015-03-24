@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.liodevel.my_reader.Noticia"
+    android:animateLayoutChanges="true"
     android:background="#ffdcdcdc">
 
     <WebView
@@ -13,7 +14,8 @@
         android:layout_below="@+id/titulo_noticia"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="-20dp" />
+        android:layout_marginTop="-20dp"
+        android:layout_marginLeft="-20dp" />
 
     <TextView
         android:id="@+id/titulo_noticia"

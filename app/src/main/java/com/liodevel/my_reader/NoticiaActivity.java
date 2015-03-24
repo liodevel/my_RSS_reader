@@ -125,35 +125,29 @@ public class NoticiaActivity extends Activity {
     }
 
 
-    public boolean onTouchEvent(MotionEvent touchevent)
-    {
-        switch (touchevent.getAction())
-        {
-            // when user first touches the screen we get x and y coordinate
-            case MotionEvent.ACTION_DOWN:
-            {
+    public boolean onTouchEvent(MotionEvent touchevent){
+        switch (touchevent.getAction()){
+            // Cuando se empieza a tocar la pantalla
+            case MotionEvent.ACTION_DOWN:{
                 x1 = touchevent.getX();
                 break;
             }
-            case MotionEvent.ACTION_UP:
-            {
+            // Al dejar de tocar
+            case MotionEvent.ACTION_UP:{
                 x2 = touchevent.getX();
 
-                //if left to right sweep event on screen
-                if (x1 < x2)
-                {
-                    Toast.makeText(this, getResources().getString(R.string.previous_new), Toast.LENGTH_LONG).show();
+                // Gesto de izquierda a derecha
+                if (x1 < x2 - 150){
+                    Toast.makeText(this, getResources().getString(R.string.previous_new), Toast.LENGTH_SHORT).show();
                     if (idNoticia > 0){
                         idNoticia--;
                         reloadNew(idNoticia);
                     }
-
                 }
 
-                // if right to left sweep event on screen
-                if (x1 > x2)
-                {
-                    Toast.makeText(this, getResources().getString(R.string.next_new), Toast.LENGTH_LONG).show();
+                // Gesto de derecha a izquierda
+                if (x1 > x2 + 150) {
+                    Toast.makeText(this, getResources().getString(R.string.next_new), Toast.LENGTH_SHORT).show();
                     if (idNoticia < StaticObjects.getArrayNoticias().size()){
                         idNoticia++;
                         reloadNew(idNoticia);
@@ -195,18 +189,35 @@ public class NoticiaActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Recarga la vista de la noticia
+     * @param id id de la noticia a cargar
+     */
     void reloadNew(int id){
+
+        // Esconder Views
+        webView.setVisibility(View.INVISIBLE);
+        tituloNoticiaView.setVisibility(View.INVISIBLE);
+        //botonAbrir.setVisibility(View.INVISIBLE);
+        contenidoNoticiaView.setVisibility(View.INVISIBLE);
+        iconoView.setVisibility(View.INVISIBLE);
+
+
+        // Id
         this.idNoticia = id;
+        // Items
         this.tituloNoticiaView.setText(StaticObjects.getArrayNoticias().get(id).getTitulo());
         this.contenidoNoticiaView.setText(StaticObjects.getArrayNoticias().get(id).getContenidoFormateado());
+        this.iconoView.setText(StaticObjects.getArrayNoticias().get(id).getIcono());
+        this.setTitle(StaticObjects.getArrayNoticias().get(id).getOrigen());
+
+        // Link y título para Abrir y compartir
         this.linkNoticia = StaticObjects.getArrayNoticias().get(id).getLink();
-
-        // ICONO
-
-        // LINK COMPARTIR
+        this.barraTituloNoticia = StaticObjects.getArrayNoticias().get(id).getTitulo();
 
 
 
+        // Imagen de la noticia
         String imagenNoticia = StaticObjects.getArrayNoticias().get(id).getImagenURL();
         webView.getLayoutParams().height = Math.round(200 * density + 0.5f);
         if (imagenNoticia.contains("png") || imagenNoticia.contains("jpg") || imagenNoticia.contains("gif") || imagenNoticia.contains("jpeg")) {
@@ -222,7 +233,8 @@ public class NoticiaActivity extends Activity {
             webView.setHorizontalScrollBarEnabled(false);
 
             // Filtro blanco y negro
-            String style = "style=\"-webkit-filter: grayscale(100%);\"";
+            //String style = "style=\"-webkit-filter: grayscale(100%);\"";
+            String style = "";
 
             webView.loadDataWithBaseURL("", "<img src=\"" + imagenNoticia + "\" width=\"115%\"" + style + "></img>", "text/html", "UTF-8", "");
 
@@ -231,6 +243,13 @@ public class NoticiaActivity extends Activity {
             tituloNoticiaView.bringToFront();
         }
 
+
+        // Mostrar Views
+        webView.setVisibility(View.VISIBLE);
+        tituloNoticiaView.setVisibility(View.VISIBLE);
+        //botonAbrir.setVisibility(View.VISIBLE);
+        contenidoNoticiaView.setVisibility(View.VISIBLE);
+        iconoView.setVisibility(View.VISIBLE);
 
 
 

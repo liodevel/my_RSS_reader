@@ -4,16 +4,21 @@
 - Añadir color a los canales de feeds.
 - Implementar timeout para la actualización de noticias, que no se quede pillado cuando no hay cobertura.
 - Revisar colores.
-- Pasar entre noticias deslizando la pantalla.
 - Añadir opción de actualizar al inicio
+- Fuentes iguales en la lista de Collections
 
 
 #DOs
- 0.4 - Boniato
+0.5 - Coliflor
+- Pasar entre noticias deslizando la pantalla.
+- Imágenes en color (lo del blanco y negro es una chorrada)
+
+
+0.4 - Boniato
 - Mostrar imágenes en las noticias. (se podría mejorar)
 - Pantalla "Acerca de".
 
- 0.3 - Alcachofa
+0.3 - Alcachofa
 - Crear Icono.
 - Actualizar al pulsar botón.
 - Actualizar al desplazar hacia abajo.
