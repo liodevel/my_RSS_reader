@@ -120,14 +120,11 @@ public class NoticiaActivity extends Activity {
             webView.getLayoutParams().height = 0;
             tituloNoticiaView.bringToFront();
         }
-
-
-
     }
 
 
     /**
-     *
+     * Controlador del Swipe para pasar de noticia
      * @param touchevent
      * @return
      */
@@ -173,12 +170,10 @@ public class NoticiaActivity extends Activity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+        // Botón Compartir
         if (id == R.id.action_share) {
             Intent sendIntent = new Intent();
             sendIntent.setAction(Intent.ACTION_SEND);
@@ -192,6 +187,11 @@ public class NoticiaActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+
+
+
+    // Funciones para Animaciones de elementos
+
     /**
      * Recarga la vista de la siguiente noticia
      * @param id id de la noticia a cargar
@@ -203,7 +203,7 @@ public class NoticiaActivity extends Activity {
         this.linkNoticia = StaticObjects.getArrayNoticias().get(id).getLink();
         this.barraTituloNoticia = StaticObjects.getArrayNoticias().get(id).getTitulo();
 
-
+        // Animaciones
         tituloNoticiaView.animate().translationX(-1500).setDuration(200).withEndAction(
                 new Runnable() {
                     @Override
@@ -245,15 +245,11 @@ public class NoticiaActivity extends Activity {
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     void reloadNewPrevious(int id){
 
-        // Id
         this.idNoticia = id;
-
-        // Link y título para Abrir y compartir
         this.linkNoticia = StaticObjects.getArrayNoticias().get(id).getLink();
         this.barraTituloNoticia = StaticObjects.getArrayNoticias().get(id).getTitulo();
 
-
-        // Esconder Views
+        // Animaciones
         tituloNoticiaView.animate().translationX(1500).setDuration(200).withEndAction(
                 new Runnable() {
                     @Override
@@ -287,6 +283,10 @@ public class NoticiaActivity extends Activity {
 
     }
 
+    /**
+     * Repintar título siguiente
+     * @param id
+     */
     void rePaintTitleNext (int id){
         this.tituloNoticiaView.setText(StaticObjects.getArrayNoticias().get(id).getTitulo());
         tituloNoticiaView.animate().translationX(1500).setDuration(0).start();
@@ -294,6 +294,10 @@ public class NoticiaActivity extends Activity {
         this.setTitle(StaticObjects.getArrayNoticias().get(id).getOrigen());
     }
 
+    /**
+     * Repintar título anterior
+     * @param id
+     */
     void rePaintTitlePrevious (int id){
         this.tituloNoticiaView.setText(StaticObjects.getArrayNoticias().get(id).getTitulo());
         tituloNoticiaView.animate().translationX(-1500).setDuration(0).start();
@@ -301,6 +305,10 @@ public class NoticiaActivity extends Activity {
         this.setTitle(StaticObjects.getArrayNoticias().get(id).getOrigen());
     }
 
+    /**
+     * Repintar imagen webView siguiente
+     * @param id
+     */
     void rePaintWebViewNext (int id){
         // Imagen de la noticia
         String imagenNoticia = StaticObjects.getArrayNoticias().get(id).getImagenURL();
@@ -331,6 +339,10 @@ public class NoticiaActivity extends Activity {
         webView.animate().translationX(0).setDuration(200).start();
     }
 
+    /**
+     * Repintar imagen webView amterios
+     * @param id
+     */
     void rePaintWebViewPrevious (int id){
         // Imagen de la noticia
         String imagenNoticia = StaticObjects.getArrayNoticias().get(id).getImagenURL();
@@ -361,24 +373,40 @@ public class NoticiaActivity extends Activity {
         webView.animate().translationX(0).setDuration(200).start();
     }
 
+    /**
+     * Repintar contenido siguiente
+     * @param id
+     */
     void rePaintContenidoNext (int id){
         this.contenidoNoticiaView.setText(StaticObjects.getArrayNoticias().get(id).getContenidoFormateado());
         contenidoNoticiaView.animate().translationX(1500).setDuration(0).start();
         contenidoNoticiaView.animate().translationX(0).setDuration(200).start();
     }
 
+    /**
+     * Repintar contenido anterior
+     * @param id
+     */
     void rePaintContenidoPrevious (int id){
         this.contenidoNoticiaView.setText(StaticObjects.getArrayNoticias().get(id).getContenidoFormateado());
         contenidoNoticiaView.animate().translationX(-1500).setDuration(0).start();
         contenidoNoticiaView.animate().translationX(0).setDuration(200).start();
     }
 
+    /**
+     * Repintar icono siguiente
+     * @param id
+     */
     void rePaintIconoNext (int id){
         this.iconoView.setText(StaticObjects.getArrayNoticias().get(id).getIcono());
         iconoView.animate().translationX(1500).setDuration(0).start();
         iconoView.animate().translationX(0).setDuration(200).start();
     }
 
+    /**
+     * Repintar icono anterior
+     * @param id
+     */
     void rePaintIconoPrevious (int id){
         this.iconoView.setText(StaticObjects.getArrayNoticias().get(id).getIcono());
         iconoView.animate().translationX(-1500).setDuration(0).start();
