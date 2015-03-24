@@ -149,7 +149,7 @@ public class NoticiaActivity extends Activity {
 
                 // Gesto de derecha a izquierda
                 if (x1 > x2 + 150) {
-                    if (idNoticia < StaticObjects.getArrayNoticias().size()){
+                    if (idNoticia < StaticObjects.getArrayNoticias().size()-1){
                         idNoticia++;
                         reloadNewNext(idNoticia);
                     }

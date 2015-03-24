@@ -1,26 +1,31 @@
-#TODOs
+#TODOs Generales
 
-- Implementar - Abrir app -vista de añadir Feed-  para guardar un feed clickado.
+
+#TODOs 1.6 Dátil
 - Añadir color a los canales de feeds.
 - Implementar timeout para la actualización de noticias, que no se quede pillado cuando no hay cobertura.
-- Revisar colores.
-- Añadir opción de actualizar al inicio
-- Fuentes iguales en la lista de Collections
+- Añadir opción de "Actualizar al inicio"
+- Comprobar funcionamiento de "Borrar noticias leídas"
+
+- Implementar - Abrir app -vista de añadir Feed-  para guardar un feed clickado.
+
+#TODOs 1.5 - Coliflor
 
 
-#DOs
-0.5 - Coliflor
+# 1.5 - Coliflor
 - Pasar entre noticias deslizando la pantalla.
 - Imágenes en color (lo del blanco y negro es una chorrada)
 - Revisar colores.
+- Fuentes iguales en la lista de Collections
 
 
-0.4 - Boniato
+
+# 1.4 - Boniato
 - Mostrar imágenes en las noticias. (se podría mejorar)
 - Pantalla "Acerca de".
 
 
-0.3 - Alcachofa
+# 1.3 - Alcachofa
 - Crear Icono.
 - Actualizar al pulsar botón.
 - Actualizar al desplazar hacia abajo.
