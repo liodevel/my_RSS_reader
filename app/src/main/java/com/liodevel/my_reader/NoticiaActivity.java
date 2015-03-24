@@ -1,10 +1,12 @@
 package com.liodevel.my_reader;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -13,7 +15,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.liodevel.my_reader.Utils.StaticObjects;
 
@@ -125,6 +126,11 @@ public class NoticiaActivity extends Activity {
     }
 
 
+    /**
+     *
+     * @param touchevent
+     * @return
+     */
     public boolean onTouchEvent(MotionEvent touchevent){
         switch (touchevent.getAction()){
             // Cuando se empieza a tocar la pantalla
@@ -138,22 +144,19 @@ public class NoticiaActivity extends Activity {
 
                 // Gesto de izquierda a derecha
                 if (x1 < x2 - 150){
-                    Toast.makeText(this, getResources().getString(R.string.previous_new), Toast.LENGTH_SHORT).show();
                     if (idNoticia > 0){
                         idNoticia--;
-                        reloadNew(idNoticia);
+                        reloadNewPrevious(idNoticia);
                     }
                 }
 
                 // Gesto de derecha a izquierda
                 if (x1 > x2 + 150) {
-                    Toast.makeText(this, getResources().getString(R.string.next_new), Toast.LENGTH_SHORT).show();
                     if (idNoticia < StaticObjects.getArrayNoticias().size()){
                         idNoticia++;
-                        reloadNew(idNoticia);
+                        reloadNewNext(idNoticia);
                     }
                 }
-
                 break;
             }
         }
@@ -190,33 +193,115 @@ public class NoticiaActivity extends Activity {
     }
 
     /**
-     * Recarga la vista de la noticia
+     * Recarga la vista de la siguiente noticia
      * @param id id de la noticia a cargar
      */
-    void reloadNew(int id){
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+    void reloadNewNext(int id){
 
-        // Esconder Views
-        webView.setVisibility(View.INVISIBLE);
-        tituloNoticiaView.setVisibility(View.INVISIBLE);
-        //botonAbrir.setVisibility(View.INVISIBLE);
-        contenidoNoticiaView.setVisibility(View.INVISIBLE);
-        iconoView.setVisibility(View.INVISIBLE);
+        this.idNoticia = id;
+        this.linkNoticia = StaticObjects.getArrayNoticias().get(id).getLink();
+        this.barraTituloNoticia = StaticObjects.getArrayNoticias().get(id).getTitulo();
 
+
+        tituloNoticiaView.animate().translationX(-1500).setDuration(200).withEndAction(
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        rePaintTitleNext(idNoticia);
+                    }
+                }).start();
+
+        webView.animate().translationX(-1500).setDuration(200).withEndAction(
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        rePaintWebViewNext(idNoticia);
+                    }
+                }).start();
+
+        contenidoNoticiaView.animate().translationX(-1500).setDuration(200).withEndAction(
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        rePaintContenidoNext(idNoticia);
+                    }
+                }).start();
+        iconoView.animate().translationX(-1500).setDuration(200).withEndAction(
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        rePaintIconoNext(idNoticia);
+                    }
+                }).start();
+
+    }
+
+
+    /**
+     * Recarga la vista de la noticia anterior
+     * @param id id de la noticia a cargar
+     */
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+    void reloadNewPrevious(int id){
 
         // Id
         this.idNoticia = id;
-        // Items
-        this.tituloNoticiaView.setText(StaticObjects.getArrayNoticias().get(id).getTitulo());
-        this.contenidoNoticiaView.setText(StaticObjects.getArrayNoticias().get(id).getContenidoFormateado());
-        this.iconoView.setText(StaticObjects.getArrayNoticias().get(id).getIcono());
-        this.setTitle(StaticObjects.getArrayNoticias().get(id).getOrigen());
 
         // Link y título para Abrir y compartir
         this.linkNoticia = StaticObjects.getArrayNoticias().get(id).getLink();
         this.barraTituloNoticia = StaticObjects.getArrayNoticias().get(id).getTitulo();
 
 
+        // Esconder Views
+        tituloNoticiaView.animate().translationX(1500).setDuration(200).withEndAction(
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        rePaintTitlePrevious(idNoticia);
+                    }
+                }).start();
 
+        webView.animate().translationX(1500).setDuration(200).withEndAction(
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        rePaintWebViewPrevious(idNoticia);
+                    }
+                }).start();
+
+        contenidoNoticiaView.animate().translationX(1500).setDuration(200).withEndAction(
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        rePaintContenidoPrevious(idNoticia);
+                    }
+                }).start();
+        iconoView.animate().translationX(1500).setDuration(200).withEndAction(
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        rePaintIconoPrevious(idNoticia);
+                    }
+                }).start();
+
+    }
+
+    void rePaintTitleNext (int id){
+        this.tituloNoticiaView.setText(StaticObjects.getArrayNoticias().get(id).getTitulo());
+        tituloNoticiaView.animate().translationX(1500).setDuration(0).start();
+        tituloNoticiaView.animate().translationX(0).setDuration(200).start();
+        this.setTitle(StaticObjects.getArrayNoticias().get(id).getOrigen());
+    }
+
+    void rePaintTitlePrevious (int id){
+        this.tituloNoticiaView.setText(StaticObjects.getArrayNoticias().get(id).getTitulo());
+        tituloNoticiaView.animate().translationX(-1500).setDuration(0).start();
+        tituloNoticiaView.animate().translationX(0).setDuration(200).start();
+        this.setTitle(StaticObjects.getArrayNoticias().get(id).getOrigen());
+    }
+
+    void rePaintWebViewNext (int id){
         // Imagen de la noticia
         String imagenNoticia = StaticObjects.getArrayNoticias().get(id).getImagenURL();
         webView.getLayoutParams().height = Math.round(200 * density + 0.5f);
@@ -242,18 +327,64 @@ public class NoticiaActivity extends Activity {
             webView.getLayoutParams().height = 0;
             tituloNoticiaView.bringToFront();
         }
-
-
-        // Mostrar Views
-        webView.setVisibility(View.VISIBLE);
-        tituloNoticiaView.setVisibility(View.VISIBLE);
-        //botonAbrir.setVisibility(View.VISIBLE);
-        contenidoNoticiaView.setVisibility(View.VISIBLE);
-        iconoView.setVisibility(View.VISIBLE);
-
-
-
+        webView.animate().translationX(1500).setDuration(0).start();
+        webView.animate().translationX(0).setDuration(200).start();
     }
+
+    void rePaintWebViewPrevious (int id){
+        // Imagen de la noticia
+        String imagenNoticia = StaticObjects.getArrayNoticias().get(id).getImagenURL();
+        webView.getLayoutParams().height = Math.round(200 * density + 0.5f);
+        if (imagenNoticia.contains("png") || imagenNoticia.contains("jpg") || imagenNoticia.contains("gif") || imagenNoticia.contains("jpeg")) {
+            // disable scroll on touch
+            webView.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    return (event.getAction() == MotionEvent.ACTION_MOVE);
+                }
+            });
+            // esconder Scrolls
+            webView.setVerticalScrollBarEnabled(false);
+            webView.setHorizontalScrollBarEnabled(false);
+
+            // Filtro blanco y negro
+            //String style = "style=\"-webkit-filter: grayscale(100%);\"";
+            String style = "";
+
+            webView.loadDataWithBaseURL("", "<img src=\"" + imagenNoticia + "\" width=\"115%\"" + style + "></img>", "text/html", "UTF-8", "");
+
+        } else {
+            webView.getLayoutParams().height = 0;
+            tituloNoticiaView.bringToFront();
+        }
+        webView.animate().translationX(-1500).setDuration(0).start();
+        webView.animate().translationX(0).setDuration(200).start();
+    }
+
+    void rePaintContenidoNext (int id){
+        this.contenidoNoticiaView.setText(StaticObjects.getArrayNoticias().get(id).getContenidoFormateado());
+        contenidoNoticiaView.animate().translationX(1500).setDuration(0).start();
+        contenidoNoticiaView.animate().translationX(0).setDuration(200).start();
+    }
+
+    void rePaintContenidoPrevious (int id){
+        this.contenidoNoticiaView.setText(StaticObjects.getArrayNoticias().get(id).getContenidoFormateado());
+        contenidoNoticiaView.animate().translationX(-1500).setDuration(0).start();
+        contenidoNoticiaView.animate().translationX(0).setDuration(200).start();
+    }
+
+    void rePaintIconoNext (int id){
+        this.iconoView.setText(StaticObjects.getArrayNoticias().get(id).getIcono());
+        iconoView.animate().translationX(1500).setDuration(0).start();
+        iconoView.animate().translationX(0).setDuration(200).start();
+    }
+
+    void rePaintIconoPrevious (int id){
+        this.iconoView.setText(StaticObjects.getArrayNoticias().get(id).getIcono());
+        iconoView.animate().translationX(-1500).setDuration(0).start();
+        iconoView.animate().translationX(0).setDuration(200).start();
+    }
+
 
 
 }

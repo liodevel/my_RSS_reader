@@ -5,6 +5,8 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.widget.DrawerLayout;
@@ -16,10 +18,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.liodevel.my_reader.Adapters.ItemCollectionAdapter;
 import com.liodevel.my_reader.Utils.StaticCollections;
+import com.liodevel.my_reader.Utils.StaticObjects;
 
 
 public class CollectionActivity extends Activity
@@ -28,6 +32,8 @@ public class CollectionActivity extends Activity
     ListView lista;
     ItemCollectionAdapter adapter;
     int listaActiva = 0;
+    Typeface tf;
+
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -43,10 +49,17 @@ public class CollectionActivity extends Activity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_collection);
+        tf = Typeface.createFromAsset(getAssets(), StaticObjects.FONT_LIGHT);
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getFragmentManager().findFragmentById(R.id.navigation_drawer);
         mTitle = getTitle();
+
+        int titleId = getResources().getIdentifier("action_bar_title", "id", "android");
+        TextView actionBarTittle = (TextView) findViewById(titleId);
+        actionBarTittle.setTypeface(tf);
+        actionBarTittle.setTextColor(Color.WHITE);
+
 
         // Set up the drawer.
         mNavigationDrawerFragment.setUp(

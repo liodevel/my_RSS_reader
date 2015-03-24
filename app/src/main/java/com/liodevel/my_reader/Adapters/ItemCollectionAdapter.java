@@ -2,6 +2,7 @@ package com.liodevel.my_reader.Adapters;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 
 import com.liodevel.my_reader.Models.ItemCollection;
 import com.liodevel.my_reader.R;
+import com.liodevel.my_reader.Utils.StaticObjects;
 
 import java.util.ArrayList;
 
@@ -73,6 +75,12 @@ public class ItemCollectionAdapter extends ArrayAdapter<Object> {
             placeHolder.nombre = (TextView) convertView.findViewById(R.id.nombre_collection);
             placeHolder.descripcion = (TextView) convertView.findViewById(R.id.desc_collection);
             placeHolder.botonAdd = (TextView) convertView.findViewById(R.id.button_add_feed);
+
+            Typeface tf = Typeface.createFromAsset(context.getAssets(), StaticObjects.FONT_LIGHT);
+            placeHolder.nombre.setTypeface(tf);
+            placeHolder.descripcion.setTypeface(tf);
+            placeHolder.botonAdd.setTypeface(tf);
+
 
         } else {
             placeHolder = (PlaceHolder) convertView.getTag();
