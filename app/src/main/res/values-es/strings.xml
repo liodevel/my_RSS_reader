@@ -2,7 +2,6 @@
 <resources>
 
     <string name="app_name"> Mi Lector RSS</string>
-    <string name="app_version"> 0.4</string>
     <string name="app_web_site">www.liodevel.com</string>
     <string name="app_desc"> Lee tus noticias con Mi Lector RSS. Fácil, rápido y bonito</string>
 
@@ -63,6 +62,7 @@
     <string name="next_new">Noticia siguiente</string>
 
     <string name="pref_header_general">General</string>
+    <string name="title_activity_settings">Opciones</string>
 
 
     <string name="pref_delete_readed">Borrar noticias leídas</string>

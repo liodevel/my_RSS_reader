@@ -1,7 +1,6 @@
 <resources>
 
     <string name="app_name">" القارئ"</string>
-    <string name="app_version">" 0.4"</string>
     <string name="app_web_site">"www.liodevel.com"</string>
     <string name="app_desc">" قراءة الأخبار الخاصة بك مع حسابي في القارئ. سهلة وسريعة والجمال"</string>
 
@@ -53,14 +52,15 @@
     <string name="previous_new">"جديد السابق"</string>
     <string name="next_new">"الجديد القادم"</string>
 
-    <string name="pref_header_general">General</string>
+    <string name="pref_header_general">الإعدادات</string>
+    <string name="title_activity_settings">الإعدادات</string>
 
 
-    <string name="pref_delete_readed">Delete readed news</string>
-    <string name="pref_description_delete_readed">The readed news will be deleted</string>
+    <string name="pref_delete_readed">حذف الأخبار اقرأ</string>
+    <string name="pref_description_delete_readed">سيتم حذف الأخبار قراءة</string>
 
-    <string name="pref_feeds">Feeds</string>
-    <string name="pref_description_feeds">Add the RSS feeds to download</string>
+    <string name="pref_feeds">القنوات</string>
+    <string name="pref_description_feeds">إضافة آر إس إس لتحميل</string>
 
 
 </resources>

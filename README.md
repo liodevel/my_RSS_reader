@@ -17,7 +17,7 @@
 - Imágenes en color (lo del blanco y negro es una chorrada)
 - Revisar colores.
 - Fuentes iguales en la lista de Collections
-- Traducción Árabe
+- Traducción Árabe, Ruso
 
 
 

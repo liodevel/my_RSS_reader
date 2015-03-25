@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name"> My reader</string>
-    <string name="app_version"> 0.4</string>
+    <string name="app_version" translatable="false"> 1.5</string>
     <string name="app_web_site">www.liodevel.com</string>
     <string name="app_desc"> Read your news with My Reader. Easy, fast and beauty</string>
 
@@ -56,9 +56,10 @@
 
     <string name="pref_header_general">General</string>
 
+    <string name="title_activity_settings">Settings</string>
 
-    <string name="pref_delete_readed">Delete readed news</string>
-    <string name="pref_description_delete_readed">The readed news will be deleted</string>
+    <string name="pref_delete_readed">Delete read news</string>
+    <string name="pref_description_delete_readed">The read news will be deleted</string>
 
     <string name="pref_feeds">Feeds</string>
     <string name="pref_description_feeds">Add the RSS feeds to download</string>

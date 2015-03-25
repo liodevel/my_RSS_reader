@@ -2,7 +2,6 @@
 <resources>
 
     <string name="app_name"> Lector RSS</string>
-    <string name="app_version"> 0.4</string>
     <string name="app_web_site">www.liodevel.com</string>
     <string name="app_desc"> Llegeix les notícies amb Lextor RSS. Senzill, ràpid i bonic.</string>
 
@@ -63,6 +62,7 @@
     <string name="next_new">Notícia següent</string>
 
     <string name="pref_header_general">General</string>
+    <string name="title_activity_settings">Opcions</string>
 
 
     <string name="pref_delete_readed">Esborrar notícies llegides</string>
