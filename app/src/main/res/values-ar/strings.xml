@@ -53,4 +53,14 @@
     <string name="previous_new">"جديد السابق"</string>
     <string name="next_new">"الجديد القادم"</string>
 
+    <string name="pref_header_general">General</string>
+
+
+    <string name="pref_delete_readed">Delete readed news</string>
+    <string name="pref_description_delete_readed">The readed news will be deleted</string>
+
+    <string name="pref_feeds">Feeds</string>
+    <string name="pref_description_feeds">Add the RSS feeds to download</string>
+
+
 </resources>

@@ -62,4 +62,14 @@
     <string name="previous_new">Notícia prèvia</string>
     <string name="next_new">Notícia següent</string>
 
+    <string name="pref_header_general">General</string>
+
+
+    <string name="pref_delete_readed">Esborrar notícies llegides</string>
+    <string name="pref_description_delete_readed">Les notícies llegides s`esborraran automàticament</string>
+
+    <string name="pref_feeds">Feeds</string>
+    <string name="pref_description_feeds">Add the RSS feeds to download</string>
+
+
 </resources>

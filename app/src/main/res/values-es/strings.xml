@@ -61,4 +61,14 @@
     <string name="title_activity_about">Acerca de</string>
     <string name="previous_new">Noticia previa</string>
     <string name="next_new">Noticia siguiente</string>
+
+    <string name="pref_header_general">General</string>
+
+
+    <string name="pref_delete_readed">Borrar noticias leídas</string>
+    <string name="pref_description_delete_readed">Las noticias leidas se borrarán automáticamente</string>
+
+    <string name="pref_feeds">Feeds</string>
+    <string name="pref_description_feeds">Add the RSS feeds to download</string>
+
 </resources>
