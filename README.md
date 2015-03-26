@@ -6,10 +6,16 @@
 - Implementar timeout para la actualización de noticias, que no se quede pillado cuando no hay cobertura.
 - Añadir opción de "Actualizar al inicio"
 - Comprobar funcionamiento de "Borrar noticias leídas"
-
 - Implementar - Abrir app -vista de añadir Feed-  para guardar un feed clickado.
 
-#TODOs 1.5 - Coliflor
+
+
+# 1.6 Dátil
+- Arreglar ortografía en català
+
+
+
+
 
 
 # 1.5 - Coliflor
