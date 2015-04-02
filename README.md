@@ -12,7 +12,6 @@
 - Añadir opción de "Actualizar al inicio"
 - Comprobar funcionamiento de "Borrar noticias leídas"
 - Implementar - Abrir app -vista de añadir Feed-  para guardar un feed clickado.
-- Al desplazar por noticias desaparecen iconos
 - Implementar importación desde Feedly
 - Añadir Collections locales
 
@@ -20,6 +19,7 @@
 
 # 1.6 Dátil
 - Arreglar ortografía en català
+- Al desplazar por noticias desaparecen iconos
 
 
 
