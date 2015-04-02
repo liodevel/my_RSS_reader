@@ -3,14 +3,33 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="8dp">
+    android:padding="0dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:background="#ffdcdcdc"
-        android:padding="8dp"
+        android:background="#ffffff"
+        android:paddingRight="6dp"
         android:id="@+id/relative_layout_noticia">
+
+
+
+        <com.android.volley.toolbox.NetworkImageView
+            android:layout_width="120dp"
+            android:layout_height="fill_parent"
+            android:id="@+id/imagen"
+            android:layout_alignBottom="@+id/autor_noticia"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:scaleType="centerCrop"
+            />
+
+        <ImageView
+            android:id="@+id/gradiente"
+            android:layout_width="120dp"
+            android:layout_height="fill_parent"
+            android:background="@drawable/gradient_shape"/>
 
         <TextView
             android:id="@+id/titulo_noticia"
@@ -20,9 +39,13 @@
             android:textSize="18sp"
             android:maxLines="3"
             android:lines="3"
+            android:padding="4dp"
+            android:layout_marginLeft="-30dp"
             android:layout_alignParentTop="true"
             android:layout_toLeftOf="@+id/category_noticia"
-            android:layout_toStartOf="@+id/category_noticia" />
+            android:layout_toRightOf="@+id/imagen"
+            android:layout_toEndOf="@+id/imagen"
+            />
 
         <TextView
             android:id="@+id/autor_noticia"
@@ -30,8 +53,11 @@
             android:layout_height="26dp"
             android:gravity="bottom|right"
             android:textSize="12sp"
+            android:layout_marginLeft="-30dp"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true" />
+            android:layout_toRightOf="@+id/imagen"
+            android:layout_toEndOf="@+id/imagen"
+            android:paddingLeft="4dp"/>
 
         <TextView
             android:id="@+id/link_noticia"
@@ -40,7 +66,8 @@
             android:gravity="bottom|right"
             android:textSize="12sp"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true" />
+            android:layout_alignParentRight="true"
+            android:paddingRight="4dp"/>
         <TextView
             android:id="@+id/category_noticia"
             android:layout_width="wrap_content"
@@ -54,6 +81,11 @@
             android:textColor="#ff387742"
             android:layout_alignParentEnd="true"
             android:layout_above="@+id/link_noticia" />
+
+
+
+
+
 
 
     </RelativeLayout>

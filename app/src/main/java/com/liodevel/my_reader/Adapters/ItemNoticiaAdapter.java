@@ -7,12 +7,21 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.util.LruCache;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageLoader;
+import com.android.volley.toolbox.ImageRequest;
+import com.android.volley.toolbox.NetworkImageView;
+import com.android.volley.toolbox.Volley;
 import com.liodevel.my_reader.Models.ItemNoticia;
 import com.liodevel.my_reader.R;
 import com.liodevel.my_reader.Utils.StaticObjects;
@@ -29,10 +38,15 @@ public class ItemNoticiaAdapter extends ArrayAdapter<Object> {
     Context context;
     private ArrayList<ItemNoticia> noticias;
 
+    ImageLoader imageLoader;
+
     public ItemNoticiaAdapter(Context context, ArrayList<ItemNoticia> noticias) {
         super(context, R.layout.item_noticia);
         this.context = context;
         this.noticias = noticias;
+        ImageLoader.ImageCache imageCache = new BitmapLruCache();
+        this.imageLoader = new ImageLoader(Volley.newRequestQueue(context), imageCache);
+
     }
 
     public int getCount() {
@@ -45,21 +59,18 @@ public class ItemNoticiaAdapter extends ArrayAdapter<Object> {
         TextView link;
         TextView origen;
         TextView category;
-        ImageView imagen;
+        NetworkImageView imagen;
+
 
         public static PlaceHolder generate(View convertView) {
             PlaceHolder placeHolder = new PlaceHolder();
-            placeHolder.titulo = (TextView) convertView
-                    .findViewById(R.id.titulo_noticia);
 
-            placeHolder.link = (TextView) convertView
-                    .findViewById(R.id.link_noticia);
+            placeHolder.titulo = (TextView) convertView.findViewById(R.id.titulo_noticia);
+            placeHolder.link = (TextView) convertView.findViewById(R.id.link_noticia);
+            placeHolder.origen = (TextView) convertView.findViewById(R.id.autor_noticia);
+            placeHolder.category = (TextView) convertView.findViewById(R.id.category_noticia);
+            placeHolder.imagen = (NetworkImageView) convertView.findViewById(R.id.imagen);
 
-            placeHolder.origen = (TextView) convertView
-                    .findViewById(R.id.autor_noticia);
-
-            placeHolder.category = (TextView) convertView
-                    .findViewById(R.id.category_noticia);
 
             return placeHolder;
         }
@@ -94,7 +105,17 @@ public class ItemNoticiaAdapter extends ArrayAdapter<Object> {
             //convertView.findViewById(R.id.titulo_noticia).setBackgroundColor(Color.GREEN);
         }
 
+        placeHolder.imagen.setImageUrl(noticias.get(position).getImagenURL(), imageLoader);
 
+        //placeHolder.imagen.setImageBitmap();
+
+
+        /*
+        placeHolder.titulo.bringToFront();
+        placeHolder.category.bringToFront();
+        placeHolder.link.bringToFront();
+        placeHolder.origen.bringToFront();
+*/
         Typeface tf = Typeface.createFromAsset(context.getAssets(), StaticObjects.FONT_LIGHT);
         Typeface fa = Typeface.createFromAsset(context.getAssets(), StaticObjects.FONT_AWESOME);
 
@@ -191,6 +212,43 @@ public class ItemNoticiaAdapter extends ArrayAdapter<Object> {
         noticias.get(position).setIcono(placeHolder.category.getText().toString());
 
         return (convertView);
+    }
+
+
+    public static class BitmapLruCache
+            extends LruCache<String, Bitmap>
+            implements ImageLoader.ImageCache {
+
+        public BitmapLruCache() {
+            this(getDefaultLruCacheSize());
+        }
+
+        public BitmapLruCache(int sizeInKiloBytes) {
+            super(sizeInKiloBytes);
+        }
+
+        @Override
+        protected int sizeOf(String key, Bitmap value) {
+            return value.getRowBytes() * value.getHeight() / 1024;
+        }
+
+        @Override
+        public Bitmap getBitmap(String url) {
+            return get(url);
+        }
+
+        @Override
+        public void putBitmap(String url, Bitmap bitmap) {
+            put(url, bitmap);
+        }
+
+        public static int getDefaultLruCacheSize() {
+            final int maxMemory =
+                    (int) (Runtime.getRuntime().maxMemory() / 1024);
+            final int cacheSize = maxMemory / 8;
+
+            return cacheSize;
+        }
     }
 
 

@@ -46,4 +46,7 @@ dependencies {
         transitive = true;
     }
 
+    compile 'com.mcxiaoke.volley:library:1.0.+'
+
+
 }

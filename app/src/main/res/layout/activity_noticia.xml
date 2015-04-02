@@ -4,13 +4,13 @@
     android:layout_height="match_parent"
     tools:context="com.liodevel.my_reader.Noticia"
     android:animateLayoutChanges="true"
-    android:background="#ffdcdcdc">
+    android:background="#ffffff">
 
     <WebView
         android:id="@+id/webViewNoticia"
         android:layout_width="fill_parent"
         android:layout_height="200dp"
-        android:background="#ffdcdcdc"
+        android:background="#ffffff"
         android:layout_below="@+id/titulo_noticia"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -29,7 +29,7 @@
         android:paddingBottom="6dp"
         android:paddingLeft="6dp"
         android:paddingRight="6dp"
-        android:background="#ffdcdcdc"
+        android:background="#ffffff"
         android:gravity="center_vertical"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -45,12 +45,12 @@
         android:layout_height="60dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/open"
-        android:textColor="#ffdcdcdc"
+        android:textColor="#ffffff"
         android:paddingTop="6dp"
         android:paddingBottom="6dp"
         android:paddingLeft="6dp"
         android:paddingRight="6dp"
-        android:background="#ffdcdcdc"
+        android:background="#ffffff"
         android:gravity="center"
         android:textSize="26sp"
         android:backgroundTint="#ff387742"
@@ -70,7 +70,7 @@
         android:paddingBottom="16dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:background="#ffdcdcdc"
+        android:background="#ffffff"
 
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -90,7 +90,7 @@
         android:layout_alignParentTop="true"
         android:gravity="center"
         android:textColor="#ff387742"
-        android:background="#ffdcdcdc"
+        android:background="#ffffff"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_alignBottom="@+id/titulo_noticia" />

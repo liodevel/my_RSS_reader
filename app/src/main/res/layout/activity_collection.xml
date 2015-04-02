@@ -17,7 +17,7 @@
             android:id="@+id/lista_feeds_collection"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
-            android:background="#FFD8E8DC"
+            android:background="#ffffff"
             android:layout_gravity="center_horizontal|bottom" />
 
 
