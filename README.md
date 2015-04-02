@@ -1,4 +1,9 @@
 #TODOs Generales
+- Añadir feeds locales como collections
+    - España
+    - Catalunya
+    - Russia
+
 
 
 #TODOs 1.6 Dátil
@@ -8,6 +13,8 @@
 - Comprobar funcionamiento de "Borrar noticias leídas"
 - Implementar - Abrir app -vista de añadir Feed-  para guardar un feed clickado.
 - Al desplazar por noticias desaparecen iconos
+- Implementar importación desde Feedly
+- Añadir Collections locales
 
 
 
