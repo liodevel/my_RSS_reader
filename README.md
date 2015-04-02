@@ -7,6 +7,7 @@
 - Añadir opción de "Actualizar al inicio"
 - Comprobar funcionamiento de "Borrar noticias leídas"
 - Implementar - Abrir app -vista de añadir Feed-  para guardar un feed clickado.
+- Al desplazar por noticias desaparecen iconos
 
 
 
