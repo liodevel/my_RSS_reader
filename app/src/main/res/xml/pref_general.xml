@@ -4,7 +4,14 @@
         android:key="delete_readed"
         android:title="@string/pref_delete_readed"
         android:summary="@string/pref_description_delete_readed"
-        android:defaultValue="true" />
+        android:defaultValue="false" />
+
+
+    <CheckBoxPreference
+        android:key="update_start"
+        android:title="@string/pref_update_start"
+        android:summary="@string/pref_description_update_start"
+        android:defaultValue="false" />
 
 
 </PreferenceScreen>

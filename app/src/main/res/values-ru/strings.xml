@@ -60,5 +60,7 @@
 
     <string name="pref_feeds">RSS-каналы</string>
     <string name="pref_description_feeds">Добавить RSS-каналы, чтобы загрузить</string>
+    <string name="pref_description_update_start">Синхронизация новость, когда начинается применение</string>
+    <string name="pref_update_start">синхронизировать при запуске</string>
 
 </resources>

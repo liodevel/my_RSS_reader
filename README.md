@@ -3,16 +3,12 @@
     - España
     - Catalunya
     - Russia
-- Añadir color a los canales de feeds.
-- Implementar timeout para la actualización de noticias, que no se quede pillado cuando no hay cobertura. (No parece urgente)
+- (postpuesto, no parece problemático), Implementar timeout para la actualización de noticias, que no se quede pillado cuando no hay cobertura.
 - Implementar - Abrir app -vista de añadir Feed-  para guardar un feed clickado.
+- (postpuesto)Implementar importación desde Feedly.
 
 
 #TODOs 1.6 Dátil
-- Añadir opción de "Actualizar al inicio"
-- Comprobar funcionamiento de "Borrar noticias leídas"
-- Implementar importación desde Feedly.
-- Añadir Collections locales.
 - Guardar Notícias.
     - Array de Noticias guardadas
     - Añadir botón de guardar
@@ -22,9 +18,13 @@
 
 
 # 1.6 Dátil
+- Añadir opción de "Actualizar al inicio"
 - Arreglar ortografía en català
 - Al desplazar por noticias desaparecen iconos
-
+- Revisar lista de noticias
+- Poner imágenes en la lista de noticias
+- Sustituir Webviews por NetworkImageView de Volley
+- Comprobar funcionamiento de "Borrar noticias leídas"
 
 
 

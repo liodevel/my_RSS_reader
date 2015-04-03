@@ -6,8 +6,8 @@
     android:animateLayoutChanges="true"
     android:background="#ffffff">
 
-    <WebView
-        android:id="@+id/webViewNoticia"
+    <com.android.volley.toolbox.NetworkImageView
+        android:id="@+id/imagenNoticia"
         android:layout_width="fill_parent"
         android:layout_height="200dp"
         android:background="#ffffff"
@@ -15,7 +15,9 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="-20dp"
-        android:layout_marginLeft="-20dp" />
+        android:layout_marginLeft="-20dp"
+        android:scaleType="centerCrop"
+        />
 
     <TextView
         android:id="@+id/titulo_noticia"
@@ -77,7 +79,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_above="@+id/boton_abrir"
-        android:layout_below="@+id/webViewNoticia" />
+        android:layout_below="@+id/imagenNoticia" />
 
 
     <TextView

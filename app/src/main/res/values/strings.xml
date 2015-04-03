@@ -63,5 +63,7 @@
 
     <string name="pref_feeds">Feeds</string>
     <string name="pref_description_feeds">Add the RSS feeds to download</string>
+    <string name="pref_update_start">Sync when start</string>
+    <string name="pref_description_update_start">Sync news when App starts</string>
 
 </resources>

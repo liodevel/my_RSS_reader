@@ -2,13 +2,16 @@ package com.liodevel.my_reader;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.LruCache;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -16,12 +19,15 @@ import android.view.View;
 import android.webkit.WebView;
 import android.widget.TextView;
 
+import com.android.volley.toolbox.ImageLoader;
+import com.android.volley.toolbox.NetworkImageView;
+import com.android.volley.toolbox.Volley;
 import com.liodevel.my_reader.Utils.StaticObjects;
 
 
 public class NoticiaActivity extends Activity {
 
-    WebView webView;
+    NetworkImageView imagenNoticiaNetworkImg;
     TextView tituloNoticiaView, botonAbrir, contenidoNoticiaView, iconoView;
     String barraTituloNoticia = "";
     String linkNoticia = "";
@@ -29,7 +35,8 @@ public class NoticiaActivity extends Activity {
     int idNoticia = 0;
     float density = 0;
     float x1,x2;
-
+    ImageLoader imageLoader;
+    Context context;
 
     // Banner Mopup
     //private static final String MOPUB_BANNER_AD_UNIT_ID = "2cc14d224b4a409ab2d25b9b130ac479";
@@ -38,7 +45,10 @@ public class NoticiaActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_noticia);
+        context = this;
 
+        ImageLoader.ImageCache imageCache = new BitmapLruCache();
+        this.imageLoader = new ImageLoader(Volley.newRequestQueue(context), imageCache);
         density = getResources().getDisplayMetrics().density;
 
         idNoticia = Integer.parseInt(getIntent().getExtras().getString("idNoticia"));
@@ -97,27 +107,14 @@ public class NoticiaActivity extends Activity {
         imagenNoticia = getIntent().getExtras().getString("imagen");
         Log.i("--IMAGEN--", imagenNoticia);
 
-        webView = (WebView) findViewById(R.id.webViewNoticia);
+        imagenNoticiaNetworkImg = (NetworkImageView) findViewById(R.id.imagenNoticia);
 
         if (imagenNoticia.contains("png") || imagenNoticia.contains("jpg") || imagenNoticia.contains("gif") || imagenNoticia.contains("jpeg")) {
-            // disable scroll on touch
-            webView.setOnTouchListener(new View.OnTouchListener() {
-                @Override
-                public boolean onTouch(View v, MotionEvent event) {
-                    return (event.getAction() == MotionEvent.ACTION_MOVE);
-                }
-            });
-            // esconder Scrolls
-            webView.setVerticalScrollBarEnabled(false);
-            webView.setHorizontalScrollBarEnabled(false);
 
-            // Filtro blanco y negro
-            String style = "style=\"-webkit-filter: grayscale(100%);\"";
-
-            webView.loadDataWithBaseURL("", "<img src=\"" + imagenNoticia + "\" width=\"115%\"" + style + "></img>", "text/html", "UTF-8", "");
+            imagenNoticiaNetworkImg.setImageUrl(imagenNoticia, imageLoader);
 
         } else {
-            webView.getLayoutParams().height = 0;
+            imagenNoticiaNetworkImg.getLayoutParams().height = 0;
             tituloNoticiaView.bringToFront();
         }
     }
@@ -211,7 +208,7 @@ public class NoticiaActivity extends Activity {
                     }
                 }).start();
 
-        webView.animate().translationX(-1500).setDuration(200).withEndAction(
+        imagenNoticiaNetworkImg.animate().translationX(-1500).setDuration(200).withEndAction(
                 new Runnable() {
                     @Override
                     public void run() {
@@ -257,7 +254,7 @@ public class NoticiaActivity extends Activity {
                     }
                 }).start();
 
-        webView.animate().translationX(1500).setDuration(200).withEndAction(
+        imagenNoticiaNetworkImg.animate().translationX(1500).setDuration(200).withEndAction(
                 new Runnable() {
                     @Override
                     public void run() {
@@ -311,31 +308,16 @@ public class NoticiaActivity extends Activity {
     void rePaintWebViewNext (int id){
         // Imagen de la noticia
         String imagenNoticia = StaticObjects.getArrayNoticias().get(id).getImagenURL();
-        webView.getLayoutParams().height = Math.round(200 * density + 0.5f);
+        imagenNoticiaNetworkImg.getLayoutParams().height = Math.round(200 * density + 0.5f);
         if (imagenNoticia.contains("png") || imagenNoticia.contains("jpg") || imagenNoticia.contains("gif") || imagenNoticia.contains("jpeg")) {
-            // disable scroll on touch
-            webView.setOnTouchListener(new View.OnTouchListener() {
-                @Override
-                public boolean onTouch(View v, MotionEvent event) {
-                    return (event.getAction() == MotionEvent.ACTION_MOVE);
-                }
-            });
-            // esconder Scrolls
-            webView.setVerticalScrollBarEnabled(false);
-            webView.setHorizontalScrollBarEnabled(false);
-
-            // Filtro blanco y negro
-            //String style = "style=\"-webkit-filter: grayscale(100%);\"";
-            String style = "";
-
-            webView.loadDataWithBaseURL("", "<img src=\"" + imagenNoticia + "\" width=\"115%\"" + style + "></img>", "text/html", "UTF-8", "");
+            imagenNoticiaNetworkImg.setImageUrl(imagenNoticia, imageLoader);
 
         } else {
-            webView.getLayoutParams().height = 0;
+            imagenNoticiaNetworkImg.getLayoutParams().height = 0;
             tituloNoticiaView.bringToFront();
         }
-        webView.animate().translationX(1500).setDuration(0).start();
-        webView.animate().translationX(0).setDuration(200).start();
+        imagenNoticiaNetworkImg.animate().translationX(1500).setDuration(0).start();
+        imagenNoticiaNetworkImg.animate().translationX(0).setDuration(200).start();
     }
 
     /**
@@ -345,31 +327,16 @@ public class NoticiaActivity extends Activity {
     void rePaintWebViewPrevious (int id){
         // Imagen de la noticia
         String imagenNoticia = StaticObjects.getArrayNoticias().get(id).getImagenURL();
-        webView.getLayoutParams().height = Math.round(200 * density + 0.5f);
+        imagenNoticiaNetworkImg.getLayoutParams().height = Math.round(200 * density + 0.5f);
         if (imagenNoticia.contains("png") || imagenNoticia.contains("jpg") || imagenNoticia.contains("gif") || imagenNoticia.contains("jpeg")) {
-            // disable scroll on touch
-            webView.setOnTouchListener(new View.OnTouchListener() {
-                @Override
-                public boolean onTouch(View v, MotionEvent event) {
-                    return (event.getAction() == MotionEvent.ACTION_MOVE);
-                }
-            });
-            // esconder Scrolls
-            webView.setVerticalScrollBarEnabled(false);
-            webView.setHorizontalScrollBarEnabled(false);
-
-            // Filtro blanco y negro
-            //String style = "style=\"-webkit-filter: grayscale(100%);\"";
-            String style = "";
-
-            webView.loadDataWithBaseURL("", "<img src=\"" + imagenNoticia + "\" width=\"115%\"" + style + "></img>", "text/html", "UTF-8", "");
+            imagenNoticiaNetworkImg.setImageUrl(imagenNoticia, imageLoader);
 
         } else {
-            webView.getLayoutParams().height = 0;
+            imagenNoticiaNetworkImg.getLayoutParams().height = 0;
             tituloNoticiaView.bringToFront();
         }
-        webView.animate().translationX(-1500).setDuration(0).start();
-        webView.animate().translationX(0).setDuration(200).start();
+        imagenNoticiaNetworkImg.animate().translationX(-1500).setDuration(0).start();
+        imagenNoticiaNetworkImg.animate().translationX(0).setDuration(200).start();
     }
 
     /**
@@ -413,5 +380,43 @@ public class NoticiaActivity extends Activity {
     }
 
 
+    /**
+     *
+     */
+    public static class BitmapLruCache
+            extends LruCache<String, Bitmap>
+            implements ImageLoader.ImageCache {
+
+        public BitmapLruCache() {
+            this(getDefaultLruCacheSize());
+        }
+
+        public BitmapLruCache(int sizeInKiloBytes) {
+            super(sizeInKiloBytes);
+        }
+
+        @Override
+        protected int sizeOf(String key, Bitmap value) {
+            return value.getRowBytes() * value.getHeight() / 1024;
+        }
+
+        @Override
+        public Bitmap getBitmap(String url) {
+            return get(url);
+        }
+
+        @Override
+        public void putBitmap(String url, Bitmap bitmap) {
+            put(url, bitmap);
+        }
+
+        public static int getDefaultLruCacheSize() {
+            final int maxMemory =
+                    (int) (Runtime.getRuntime().maxMemory() / 1024);
+            final int cacheSize = maxMemory / 8;
+
+            return cacheSize;
+        }
+    }
 
 }

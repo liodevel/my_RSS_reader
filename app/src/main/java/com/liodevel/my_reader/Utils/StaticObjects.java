@@ -21,6 +21,7 @@ public class StaticObjects {
 
 
     static boolean delete_readed = false;
+    static boolean update_start = false;
 
     public static Set<String> setFeeds;
 
@@ -120,6 +121,14 @@ public class StaticObjects {
 
     public static void setContenidosXML(ArrayList<XMLContent> contenidosXML) {
         StaticObjects.contenidosXML = contenidosXML;
+    }
+
+    public static boolean isUpdate_start() {
+        return update_start;
+    }
+
+    public static void setUpdate_start(boolean update_start) {
+        StaticObjects.update_start = update_start;
     }
 }
 

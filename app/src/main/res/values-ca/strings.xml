@@ -70,6 +70,8 @@
 
     <string name="pref_feeds">Feeds</string>
     <string name="pref_description_feeds">Add the RSS feeds to download</string>
+    <string name="pref_description_update_start">Actualitzar notícies al iniciar l´aplicació</string>
+    <string name="pref_update_start">Actualitar a l`inici</string>
 
 
 </resources>

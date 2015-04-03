@@ -59,7 +59,6 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.Set;
 
-
 /**
  * Actividad Principal
  */
@@ -243,8 +242,10 @@ public class MainActivity extends Activity {
 
 
 
-        /// Recuperar Feeds Nuevos
-        //new GetRssFeedsTask().execute();
+        /// Recuperar Feeds Nuevos (Si está activado en las opciones)
+        if (StaticObjects.isUpdate_start()) {
+            new GetRssFeedsTask().execute();
+        }
     }
 
     @Override
@@ -573,7 +574,6 @@ public class MainActivity extends Activity {
             }
             Log.i("---ACTUALIZACION", "HORA: " + new Date(StaticObjects.getUltimaActualizacion()));
 
-
             if (StaticObjects.getArrayNoticias() != null) {
                 refreshList();
             }
@@ -586,9 +586,6 @@ public class MainActivity extends Activity {
                 textoNoNews.setVisibility(View.INVISIBLE);
             }
         }
-
-
-
     }
 
 
@@ -715,9 +712,13 @@ public class MainActivity extends Activity {
         // Cargar preferencias
         this.prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
-        // OPCIONES - Delete Readed
+        // OPCIONES
+        // Delete Readed
         StaticObjects.setDelete_readed(this.prefs.getBoolean("delete_readed", false));
         Log.i("--PREFS", "delete_readed = " + StaticObjects.isDelete_readed());
+        // Update Start
+        StaticObjects.setUpdate_start(this.prefs.getBoolean("update_start", false));
+        Log.i("--PREFS", "update_start = " + StaticObjects.isDelete_readed());
 
 
         // Última Actualización
