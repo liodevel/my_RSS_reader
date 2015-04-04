@@ -2,13 +2,6 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\emilio\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
-        <dex dex="C:\Users\emilio\Documents\AndroidStudioProjects\my_rss_reader\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-1c55df234a015ed80988626dda04fd09ffa5bb6b.jar" />
-    </item>
-    <item
         jar="C:\Users\emilio\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.3\5fc52c41ef0239d1093a1eb7c3697036183677ce\gson-2.3.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -51,18 +44,18 @@
         <dex dex="C:\Users\emilio\Documents\AndroidStudioProjects\my_rss_reader\app\build\intermediates\pre-dexed\debug\classes-87eb186797747516b594e4e821dee68e69a4ba4f.jar" />
     </item>
     <item
-        jar="C:\Users\emilio\Documents\AndroidStudioProjects\my_rss_reader\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
+        jar="C:\Users\emilio\Documents\AndroidStudioProjects\my_rss_reader\app\build\intermediates\exploded-aar\com.android.support\support-v13\22.0.0\libs\internal_impl-22.0.0.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
-        <dex dex="C:\Users\emilio\Documents\AndroidStudioProjects\my_rss_reader\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-4daafaa3cedef4d2527a88f2874fb15e8a87f702.jar" />
+        sha1="def3eff2b7b4774d96ae15b07b3fc0111edbfe24">
+        <dex dex="C:\Users\emilio\Documents\AndroidStudioProjects\my_rss_reader\app\build\intermediates\pre-dexed\debug\internal_impl-22.0.0-81584b7c23f54447e1d493064fb8ec7cf0c1dbb7.jar" />
     </item>
     <item
-        jar="C:\Users\emilio\Documents\AndroidStudioProjects\my_rss_reader\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
+        jar="C:\Users\emilio\Documents\AndroidStudioProjects\my_rss_reader\app\build\intermediates\exploded-aar\com.android.support\support-v13\22.0.0\classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
-        <dex dex="C:\Users\emilio\Documents\AndroidStudioProjects\my_rss_reader\app\build\intermediates\pre-dexed\debug\classes-d7a550ad2c5b29a5d70ae510ac68b501250e5406.jar" />
+        sha1="7f9cca1caa023a880b00c382bcc5c90245ae4895">
+        <dex dex="C:\Users\emilio\Documents\AndroidStudioProjects\my_rss_reader\app\build\intermediates\pre-dexed\debug\classes-6cbc0cb2068d0d45fff6201d02007310924d23c3.jar" />
     </item>
     <item
         jar="C:\Users\emilio\.gradle\caches\modules-2\files-2.1\com.mcxiaoke.volley\library\1.0.15\9093a362d18c5f81f58e49d86dece57d9b6e1cb7\library-1.0.15.jar"
@@ -77,6 +70,27 @@
         revision="21.1.2"
         sha1="616f86fc94c25915ce962f7658dd365ae494f826">
         <dex dex="C:\Users\emilio\Documents\AndroidStudioProjects\my_rss_reader\app\build\intermediates\pre-dexed\debug\mopub-volley-1.0.0-c604cdfd12f8bbe3393e441ad0f16d46868bf902.jar" />
+    </item>
+    <item
+        jar="C:\Users\emilio\Documents\AndroidStudioProjects\my_rss_reader\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
+        <dex dex="C:\Users\emilio\Documents\AndroidStudioProjects\my_rss_reader\app\build\intermediates\pre-dexed\debug\classes-79f1cb2cf3bf348efcbbd6740e03b7095da91699.jar" />
+    </item>
+    <item
+        jar="C:\Users\emilio\Documents\AndroidStudioProjects\my_rss_reader\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\libs\internal_impl-22.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
+        <dex dex="C:\Users\emilio\Documents\AndroidStudioProjects\my_rss_reader\app\build\intermediates\pre-dexed\debug\internal_impl-22.0.0-93e2962703b022fdf3716d100b632ca9b6fa8b1b.jar" />
+    </item>
+    <item
+        jar="C:\Users\emilio\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.0.0\support-annotations-22.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
+        <dex dex="C:\Users\emilio\Documents\AndroidStudioProjects\my_rss_reader\app\build\intermediates\pre-dexed\debug\support-annotations-22.0.0-aa5e161e921221b8818c244775e7d657ac0a259e.jar" />
     </item>
 
 </items>

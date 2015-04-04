@@ -80,7 +80,7 @@ public class MainActivity extends Activity {
     Activity currentActivity;
     Intent noticiaActivity;
 
-    Typeface tf;
+    Typeface tf, fa;
 
 
     @Override
@@ -102,10 +102,12 @@ public class MainActivity extends Activity {
 
         // Tipografia
         tf = Typeface.createFromAsset(getAssets(), StaticObjects.FONT_LIGHT);
+        fa = Typeface.createFromAsset(getAssets(), StaticObjects.FONT_AWESOME);
 
         // Tipografia nombre App
         int titleId = getResources().getIdentifier("action_bar_title", "id", "android");
         TextView actionBarTittle = (TextView) findViewById(titleId);
+
         buttonBrowse = (TextView) findViewById(R.id.button_browse_categories);
         buttonAdd = (TextView) findViewById(R.id.button_add_feeds);
         textoNoFeeds = (TextView) findViewById(R.id.text_no_feeds);
@@ -272,10 +274,8 @@ public class MainActivity extends Activity {
                     currentActivity.startActivity(new Intent(currentActivity, ManageFeedsActivity.class));
                 } });
         }
-
-
-
     }
+
 
     @Override
     protected void onDestroy() {
@@ -285,19 +285,15 @@ public class MainActivity extends Activity {
         SharedPreferences.Editor editor = sharedPrefs.edit();
 
         /// Guardar Preferences
-
         // Hora Actualización
         editor.putLong("ultima_actualizacion", StaticObjects.getUltimaActualizacion());
         Log.i("--- PREFS", "Noticias ultima_actualizacion: " + new Date(StaticObjects.getUltimaActualizacion()));
-
         // Array de Noticias
         Gson gson = new Gson();
         String jsonArrayNoticias = gson.toJson(StaticObjects.getArrayNoticias());
         editor.putString("array_noticias", jsonArrayNoticias);
         Log.i("--- PREFS", "array_noticias: " + jsonArrayNoticias);
         editor.commit();
-
-
     }
 
     /**
@@ -313,6 +309,25 @@ public class MainActivity extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
+
+        MenuItem savedNewsButton = menu.findItem(R.id.action_saved_news);
+        if (savedNewsButton  == null) {
+            savedNewsButton  = menu.add(0, R.id.action_saved_news, 0, R.string.saved_news);
+        }
+        TextView tv = new TextView(currentActivity);
+        tv.setText(getResources().getString(R.string.fa_folder_open_o));
+        tv.setTextColor(Color.WHITE);
+        tv.setTextSize(30);
+        tv.setTypeface(fa);
+        tv.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        currentActivity.startActivity(new Intent(currentActivity, NoticiasGuardadasActivity.class));
+                    }
+                }
+        );
+        savedNewsButton.setActionView(tv);
 
         restoreActionBar();
         return true;
@@ -352,8 +367,7 @@ public class MainActivity extends Activity {
         }
 
         // Click en actualizar
-        if (item.getItemId() == R.id.action_update) {
-
+        else if (item.getItemId() == R.id.action_update) {
             LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             this.iv = (ImageView) inflater.inflate(R.layout.iv_refresh, null);
             Animation rotation = AnimationUtils.loadAnimation(this, R.anim.rotate_refresh);
@@ -364,6 +378,11 @@ public class MainActivity extends Activity {
             new GetRssFeedsTask().execute();
             return true;
         }
+        // Click en Noticias guardadas
+        else if (item.getItemId() == R.id.action_saved_news) {
+            currentActivity.startActivity(new Intent(currentActivity, NoticiasGuardadasActivity.class));
+        }
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -737,6 +756,20 @@ public class MainActivity extends Activity {
             StaticObjects.setArrayNoticias(new ArrayList<ItemNoticia>());
         }
         Log.i("--PREFS", "array_noticias = " + StaticObjects.getArrayNoticias());
+
+        // Array de Noticias Guardadas
+        Gson gsonNoticiasGuardadas = new Gson();
+        String jsonNoticiasGuardadas = this.prefs.getString("array_noticias_guardadas", "");
+        Type typeNoticiasGuardadas = new TypeToken<ArrayList<ItemNoticia>>() {
+        }.getType();
+        ArrayList<ItemNoticia> arrayListNoticiasGuardadas = gsonNoticiasGuardadas.fromJson(jsonNoticiasGuardadas, typeNoticiasGuardadas);
+        if (arrayListNoticiasGuardadas != null) {
+            StaticObjects.setArrayNoticiasGuardadas(arrayListNoticiasGuardadas);
+        } else {
+            StaticObjects.setArrayNoticiasGuardadas(new ArrayList<ItemNoticia>());
+        }
+        Log.i("--PREFS", "array_noticias_guardadas = " + StaticObjects.getArrayNoticiasGuardadas());
+
 
         // Array de Feeds
         Gson gsonFeeds = new Gson();

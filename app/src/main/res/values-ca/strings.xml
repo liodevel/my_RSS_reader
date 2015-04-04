@@ -72,6 +72,10 @@
     <string name="pref_description_feeds">Add the RSS feeds to download</string>
     <string name="pref_description_update_start">Actualitzar notícies al iniciar l´aplicació</string>
     <string name="pref_update_start">Actualitar a l`inici</string>
+    <string name="save">DESAR</string>
+    <string name="saved_news">Notícies desades</string>
+    <string name="news">Notícies</string>
+    <string name="title_activity_saved_news">Notícies desades</string>
 
 
 </resources>

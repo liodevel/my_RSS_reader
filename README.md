@@ -13,7 +13,8 @@
     - Array de Noticias guardadas
     - Añadir botón de guardar
     - Gestionar lista de noticias guardadas, dejar borrarlas...
-    
+    - Animar el proceso de guardado
+    - Marcar las noticias guardadas para que no se puedan guardar 2 veces
 
 
 

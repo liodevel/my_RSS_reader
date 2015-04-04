@@ -62,16 +62,6 @@
             android:textSize="26sp"
             android:layout_weight="0.5"/>
 
-        <TextView
-            android:id="@+id/boton_guardar"
-            android:layout_width="fill_parent"
-            android:layout_height="60dp"
-            android:text="@string/save"
-            android:textColor="#ffffff"
-            android:background="#ff4b5c77"
-            android:gravity="center"
-            android:textSize="26sp"
-            android:layout_weight="1.5"/>
     </LinearLayout>
 
 

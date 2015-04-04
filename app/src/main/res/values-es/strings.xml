@@ -74,5 +74,9 @@
 
     <string name="pref_feeds">Feeds</string>
     <string name="pref_description_feeds">Add the RSS feeds to download</string>
+    <string name="save">GUARDAR</string>
+    <string name="saved_news">Noticias guardadas</string>
+    <string name="news">Noticias</string>
+    <string name="title_activity_saved_news">Noticias guardadas</string>
 
 </resources>

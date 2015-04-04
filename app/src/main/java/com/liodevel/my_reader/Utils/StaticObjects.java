@@ -18,7 +18,7 @@ public class StaticObjects {
 
     static ArrayList<ItemNoticia> arrayNoticias = new ArrayList<>();
     static ArrayList<ItemFeed> arrayFeeds = new ArrayList<>();
-
+    static ArrayList<ItemNoticia> arrayNoticiasGuardadas = new ArrayList<>();
 
     static boolean delete_readed = false;
     static boolean update_start = false;
@@ -77,6 +77,7 @@ public class StaticObjects {
     }
 
 
+
     public static boolean existFeed(ItemNoticia feedEnt) {
         boolean ret = false;
         if (arrayNoticias != null) {
@@ -129,6 +130,14 @@ public class StaticObjects {
 
     public static void setUpdate_start(boolean update_start) {
         StaticObjects.update_start = update_start;
+    }
+
+    public static ArrayList<ItemNoticia> getArrayNoticiasGuardadas() {
+        return arrayNoticiasGuardadas;
+    }
+
+    public static void setArrayNoticiasGuardadas(ArrayList<ItemNoticia> arrayNoticiasGuardadas) {
+        StaticObjects.arrayNoticiasGuardadas = arrayNoticiasGuardadas;
     }
 }
 

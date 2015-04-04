@@ -85,6 +85,17 @@
             android:name=".AboutActivity"
             android:label="@string/title_activity_about" >
         </activity>
+        <activity
+            android:name=".NoticiasGuardadasActivity"
+            android:label="@string/title_activity_saved_news" >
+        </activity>
+
+        <activity
+            android:name=".NoticiaGuardadaActivity"
+            android:label="@string/title_activity_saved_news" >
+        </activity>
+
+
     </application>
 
 </manifest>

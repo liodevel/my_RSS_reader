@@ -16,7 +16,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.webkit.WebView;
 import android.widget.TextView;
 
 import com.android.volley.toolbox.ImageLoader;
@@ -25,10 +24,10 @@ import com.android.volley.toolbox.Volley;
 import com.liodevel.my_reader.Utils.StaticObjects;
 
 
-public class NoticiaActivity extends Activity {
+public class NoticiaGuardadaActivity extends Activity {
 
     NetworkImageView imagenNoticiaNetworkImg;
-    TextView tituloNoticiaView, botonAbrir, botonGuardar, contenidoNoticiaView, iconoView;
+    TextView tituloNoticiaView, botonAbrir, contenidoNoticiaView, iconoView;
     String barraTituloNoticia = "";
     String linkNoticia = "";
     String icono = "";
@@ -44,7 +43,7 @@ public class NoticiaActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_noticia);
+        setContentView(R.layout.activity_noticia_guardada);
         context = this;
 
         ImageLoader.ImageCache imageCache = new BitmapLruCache();
@@ -102,24 +101,6 @@ public class NoticiaActivity extends Activity {
         });
 
 
-        // Botón GUARDAR
-        botonGuardar = (TextView) findViewById(R.id.boton_guardar);
-        botonGuardar.setTextColor(Color.WHITE);
-        botonGuardar.setText(getResources().getString(R.string.fa_floppy_o));
-        botonGuardar.setTypeface(fa);
-        botonGuardar.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                try {
-                   // Guardar Noticia
-                    StaticObjects.getArrayNoticiasGuardadas().add(StaticObjects.getArrayNoticias().get(idNoticia));
-
-                } catch (Exception e) {  }
-            }
-        });
-
-
         // Imagen Noticia
         String imagenNoticia = "";
         imagenNoticia = getIntent().getExtras().getString("imagen");
@@ -164,7 +145,7 @@ public class NoticiaActivity extends Activity {
 
                 // Gesto de derecha a izquierda
                 if (x1 > x2 + 150) {
-                    if (idNoticia < StaticObjects.getArrayNoticias().size()-1){
+                    if (idNoticia < StaticObjects.getArrayNoticiasGuardadas().size()-1){
                         idNoticia++;
                         reloadNewNext(idNoticia);
                     }
@@ -214,8 +195,8 @@ public class NoticiaActivity extends Activity {
     void reloadNewNext(int id){
 
         this.idNoticia = id;
-        this.linkNoticia = StaticObjects.getArrayNoticias().get(id).getLink();
-        this.barraTituloNoticia = StaticObjects.getArrayNoticias().get(id).getTitulo();
+        this.linkNoticia = StaticObjects.getArrayNoticiasGuardadas().get(id).getLink();
+        this.barraTituloNoticia = StaticObjects.getArrayNoticiasGuardadas().get(id).getTitulo();
 
         // Animaciones
         tituloNoticiaView.animate().translationX(-1500).setDuration(200).withEndAction(
@@ -260,8 +241,8 @@ public class NoticiaActivity extends Activity {
     void reloadNewPrevious(int id){
 
         this.idNoticia = id;
-        this.linkNoticia = StaticObjects.getArrayNoticias().get(id).getLink();
-        this.barraTituloNoticia = StaticObjects.getArrayNoticias().get(id).getTitulo();
+        this.linkNoticia = StaticObjects.getArrayNoticiasGuardadas().get(id).getLink();
+        this.barraTituloNoticia = StaticObjects.getArrayNoticiasGuardadas().get(id).getTitulo();
 
         // Animaciones
         tituloNoticiaView.animate().translationX(1500).setDuration(200).withEndAction(
@@ -302,10 +283,10 @@ public class NoticiaActivity extends Activity {
      * @param id
      */
     void rePaintTitleNext (int id){
-        this.tituloNoticiaView.setText(StaticObjects.getArrayNoticias().get(id).getTitulo());
+        this.tituloNoticiaView.setText(StaticObjects.getArrayNoticiasGuardadas().get(id).getTitulo());
         tituloNoticiaView.animate().translationX(1500).setDuration(0).start();
         tituloNoticiaView.animate().translationX(0).setDuration(200).start();
-        this.setTitle(StaticObjects.getArrayNoticias().get(id).getOrigen());
+        this.setTitle(StaticObjects.getArrayNoticiasGuardadas().get(id).getOrigen());
     }
 
     /**
@@ -313,10 +294,10 @@ public class NoticiaActivity extends Activity {
      * @param id
      */
     void rePaintTitlePrevious (int id){
-        this.tituloNoticiaView.setText(StaticObjects.getArrayNoticias().get(id).getTitulo());
+        this.tituloNoticiaView.setText(StaticObjects.getArrayNoticiasGuardadas().get(id).getTitulo());
         tituloNoticiaView.animate().translationX(-1500).setDuration(0).start();
         tituloNoticiaView.animate().translationX(0).setDuration(200).start();
-        this.setTitle(StaticObjects.getArrayNoticias().get(id).getOrigen());
+        this.setTitle(StaticObjects.getArrayNoticiasGuardadas().get(id).getOrigen());
     }
 
     /**
@@ -325,7 +306,7 @@ public class NoticiaActivity extends Activity {
      */
     void rePaintWebViewNext (int id){
         // Imagen de la noticia
-        String imagenNoticia = StaticObjects.getArrayNoticias().get(id).getImagenURL();
+        String imagenNoticia = StaticObjects.getArrayNoticiasGuardadas().get(id).getImagenURL();
         imagenNoticiaNetworkImg.getLayoutParams().height = Math.round(200 * density + 0.5f);
         if (imagenNoticia.contains("png") || imagenNoticia.contains("jpg") || imagenNoticia.contains("gif") || imagenNoticia.contains("jpeg")) {
             imagenNoticiaNetworkImg.setImageUrl(imagenNoticia, imageLoader);
@@ -344,7 +325,7 @@ public class NoticiaActivity extends Activity {
      */
     void rePaintWebViewPrevious (int id){
         // Imagen de la noticia
-        String imagenNoticia = StaticObjects.getArrayNoticias().get(id).getImagenURL();
+        String imagenNoticia = StaticObjects.getArrayNoticiasGuardadas().get(id).getImagenURL();
         imagenNoticiaNetworkImg.getLayoutParams().height = Math.round(200 * density + 0.5f);
         if (imagenNoticia.contains("png") || imagenNoticia.contains("jpg") || imagenNoticia.contains("gif") || imagenNoticia.contains("jpeg")) {
             imagenNoticiaNetworkImg.setImageUrl(imagenNoticia, imageLoader);
@@ -362,7 +343,7 @@ public class NoticiaActivity extends Activity {
      * @param id
      */
     void rePaintContenidoNext (int id){
-        this.contenidoNoticiaView.setText(StaticObjects.getArrayNoticias().get(id).getContenidoFormateado());
+        this.contenidoNoticiaView.setText(StaticObjects.getArrayNoticiasGuardadas().get(id).getContenidoFormateado());
         contenidoNoticiaView.animate().translationX(1500).setDuration(0).start();
         contenidoNoticiaView.animate().translationX(0).setDuration(200).start();
     }
@@ -372,7 +353,7 @@ public class NoticiaActivity extends Activity {
      * @param id
      */
     void rePaintContenidoPrevious (int id){
-        this.contenidoNoticiaView.setText(StaticObjects.getArrayNoticias().get(id).getContenidoFormateado());
+        this.contenidoNoticiaView.setText(StaticObjects.getArrayNoticiasGuardadas().get(id).getContenidoFormateado());
         contenidoNoticiaView.animate().translationX(-1500).setDuration(0).start();
         contenidoNoticiaView.animate().translationX(0).setDuration(200).start();
     }
@@ -382,7 +363,7 @@ public class NoticiaActivity extends Activity {
      * @param id
      */
     void rePaintIconoNext (int id){
-        this.iconoView.setText(StaticObjects.getArrayNoticias().get(id).getIcono());
+        this.iconoView.setText(StaticObjects.getArrayNoticiasGuardadas().get(id).getIcono());
         iconoView.animate().translationX(1500).setDuration(0).start();
         iconoView.animate().translationX(0).setDuration(200).start();
     }
@@ -392,7 +373,7 @@ public class NoticiaActivity extends Activity {
      * @param id
      */
     void rePaintIconoPrevious (int id){
-        this.iconoView.setText(StaticObjects.getArrayNoticias().get(id).getIcono());
+        this.iconoView.setText(StaticObjects.getArrayNoticiasGuardadas().get(id).getIcono());
         iconoView.animate().translationX(-1500).setDuration(0).start();
         iconoView.animate().translationX(0).setDuration(200).start();
     }
