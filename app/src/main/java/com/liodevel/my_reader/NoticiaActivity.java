@@ -16,6 +16,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.webkit.WebView;
 import android.widget.TextView;
 
@@ -46,6 +48,7 @@ public class NoticiaActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_noticia);
         context = this;
+
 
         ImageLoader.ImageCache imageCache = new BitmapLruCache();
         this.imageLoader = new ImageLoader(Volley.newRequestQueue(context), imageCache);
@@ -112,9 +115,43 @@ public class NoticiaActivity extends Activity {
             @Override
             public void onClick(View v) {
                 try {
-                   // Guardar Noticia
-                    StaticObjects.getArrayNoticiasGuardadas().add(StaticObjects.getArrayNoticias().get(idNoticia));
+                    // Guardar Noticia
+                    Animation rotation = AnimationUtils.loadAnimation(context, R.anim.rotate_refresh);
+                    rotation.setRepeatCount(Animation.ABSOLUTE);
+                    v.startAnimation(rotation);
 
+                    StaticObjects.getArrayNoticiasGuardadas().add(StaticObjects.getArrayNoticias().get(idNoticia));
+                    StaticObjects.getArrayNoticias().get(idNoticia).setGuardada(true);
+
+                } catch (Exception e) {  }
+            }
+        });
+
+
+        // Botón BORRAR
+        botonGuardar = (TextView) findViewById(R.id.boton_borrar);
+        botonGuardar.setTextColor(Color.WHITE);
+        botonGuardar.setText(getResources().getString(R.string.fa_trash_o));
+        botonGuardar.setTypeface(fa);
+        botonGuardar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    // Borrar Noticia
+                    Animation rotation = AnimationUtils.loadAnimation(context, R.anim.rotate_refresh);
+                    rotation.setRepeatCount(Animation.ABSOLUTE);
+                    v.startAnimation(rotation);
+
+                    StaticObjects.getArrayNoticias().remove(idNoticia);
+                    if (StaticObjects.getArrayNoticias().isEmpty()){
+                        finish();
+                    } else if (idNoticia < StaticObjects.getArrayNoticias().size()){
+                        // Enseñar siguiente
+                        reloadNewNext(idNoticia);
+                    } else {
+                        // Enseñar anterior
+                        reloadNewPrevious(idNoticia - 1);
+                    }
                 } catch (Exception e) {  }
             }
         });

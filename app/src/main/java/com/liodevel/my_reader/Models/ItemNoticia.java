@@ -26,6 +26,7 @@ public class ItemNoticia {
     String id;
 
     boolean leida;
+    boolean guardada;
 
     public ItemNoticia(String titulo, String descripcion, String link, String origen, Date fechaPublicacion, int orden, String id,
                        String autor, String contenidoFormateado, String category) {
@@ -39,6 +40,7 @@ public class ItemNoticia {
         this.orden = orden;
         this.id = id;
         this.leida = false;
+        this.guardada = false;
         this.category = category;
     }
 
@@ -54,6 +56,7 @@ public class ItemNoticia {
         this.orden = -1;
         this.id = "";
         this.leida = false;
+        this.guardada = false;
         this.category = "Custom";
         this.imagenURL = "";
     }
@@ -69,6 +72,7 @@ public class ItemNoticia {
         this.orden = -1;
         this.id = "";
         this.leida = false;
+        this.guardada = false;
         this.category = "Custom";
         this.imagenURL = "";
 
@@ -185,5 +189,13 @@ public class ItemNoticia {
 
     public void setImagen(Bitmap imagen) {
         this.imagen = imagen;
+    }
+
+    public boolean isGuardada() {
+        return guardada;
+    }
+
+    public void setGuardada(boolean guardada) {
+        this.guardada = guardada;
     }
 }

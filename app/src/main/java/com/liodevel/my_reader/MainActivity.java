@@ -209,13 +209,9 @@ public class MainActivity extends Activity {
                 noticiaActivity.putExtra("contenidoFormNoticia", StaticObjects.getArrayNoticias().get(position).getContenidoFormateado());
                 noticiaActivity.putExtra("icono",StaticObjects.getArrayNoticias().get(position).getIcono());
                 noticiaActivity.putExtra("imagen",StaticObjects.getArrayNoticias().get(position).getImagenURL());
+                noticiaActivity.putExtra("fecha",StaticObjects.getArrayNoticias().get(position).getFechaPublicacion());
                 noticiaActivity.putExtra("idNoticia","" + position);
 
-                // Si DELETE READED está marcado se borra el elemento del array y se actualiza la lista
-                if (StaticObjects.isDelete_readed()) {
-                    StaticObjects.getArrayNoticias().remove(position);
-                    adapter.notifyDataSetChanged();
-                }
                 // Abrir pantalla con la noticia
                 currentActivity.startActivity(noticiaActivity);
 
@@ -274,6 +270,13 @@ public class MainActivity extends Activity {
                     currentActivity.startActivity(new Intent(currentActivity, ManageFeedsActivity.class));
                 } });
         }
+
+        /// Cargar ArrayNoticias en la lista
+        adapter = new ItemNoticiaAdapter(this, StaticObjects.getArrayNoticias());
+        lista.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+
+
     }
 
 

@@ -2,9 +2,9 @@
 <resources>
 
     <string name="app_name"> My reader</string>
-    <string name="app_version" translatable="false"> 1.5</string>
+    <string name="app_version" translatable="false"> 1.6</string>
     <string name="app_web_site">www.liodevel.com</string>
-    <string name="app_desc"> Read your news with My Reader. Easy, fast and beauty</string>
+    <string name="app_desc"> Read your news with My Reader. Easy, fast and beauty. Save your favourite articles to read later (offline)</string>
 
     <string name="navigation_drawer_open">Open categories</string>
     <string name="navigation_drawer_close">Close categories</string>

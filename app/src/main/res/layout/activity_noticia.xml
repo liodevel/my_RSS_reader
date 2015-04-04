@@ -41,14 +41,55 @@
 
 
     <LinearLayout
-        android:id="@+id/layout_botones"
+        android:id="@+id/layout_botones_fondo"
         android:layout_width="fill_parent"
         android:layout_height="60dp"
-        android:weightSum="2"
+        android:weightSum="3"
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/imagenNoticia"
         android:layout_alignEnd="@+id/imagenNoticia">
 
+        <TextView
+            android:id="@+id/boton_borrar_fondo"
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:text=""
+            android:textColor="#ffffff"
+            android:background="#ff772b24"
+            android:gravity="center"
+            android:textSize="26sp"
+            android:layout_weight="1.25"/>
+
+        <TextView
+            android:id="@+id/boton_guardar_fondo"
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:textColor="#ffffff"
+            android:background="#ff4b5c77"
+            android:gravity="center"
+            android:textSize="26sp"
+            android:layout_weight="1.25"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_botones"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:weightSum="3"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/imagenNoticia"
+        android:layout_alignEnd="@+id/imagenNoticia">
+
+        <TextView
+            android:id="@+id/boton_borrar"
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:text=""
+            android:textColor="#ffffff"
+            android:background="#00772b24"
+            android:gravity="center"
+            android:textSize="26sp"
+            android:layout_weight="1.25"/>
 
         <TextView
             android:id="@+id/boton_abrir"
@@ -68,10 +109,12 @@
             android:layout_height="60dp"
             android:text="@string/save"
             android:textColor="#ffffff"
-            android:background="#ff4b5c77"
+            android:background="#004b5c77"
             android:gravity="center"
             android:textSize="26sp"
-            android:layout_weight="1.5"/>
+            android:layout_weight="1.25"/>
+
+
     </LinearLayout>
 
 

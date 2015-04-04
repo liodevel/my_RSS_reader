@@ -7,8 +7,10 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.View;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -28,6 +30,7 @@ public class NoticiasGuardadasActivity extends Activity {
     Intent noticiaGuardadaActivity;
 
     Typeface tf;
+    SwipeRefreshLayout swipeLayout;
 
 
     @Override
@@ -52,6 +55,8 @@ public class NoticiasGuardadasActivity extends Activity {
 
         /// Click en elemento de la lista
         lista.setClickable(true);
+        swipeLayout = (SwipeRefreshLayout) findViewById(R.id.drawer_layout_guardadas);
+        swipeLayout.setEnabled(false);
 
         // Eliminar al desplazar elemento
         SwipeDismissListViewTouchListener touchListener =

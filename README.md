@@ -9,12 +9,8 @@
 
 
 #TODOs 1.6 Dátil
-- Guardar Notícias.
-    - Array de Noticias guardadas
-    - Añadir botón de guardar
-    - Gestionar lista de noticias guardadas, dejar borrarlas...
-    - Animar el proceso de guardado
-    - Marcar las noticias guardadas para que no se puedan guardar 2 veces
+
+- Marcar las noticias guardadas para que no se puedan guardar 2 veces
 
 
 
@@ -26,6 +22,11 @@
 - Poner imágenes en la lista de noticias
 - Sustituir Webviews por NetworkImageView de Volley
 - Comprobar funcionamiento de "Borrar noticias leídas"
+- Guardar Notícias.
+    - Array de Noticias guardadas
+    - Añadir botón de guardar
+    - Gestionar lista de noticias guardadas, dejar borrarlas...
+- Animar los botones de guardar y borrar
 
 
 

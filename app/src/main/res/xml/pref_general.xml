@@ -1,11 +1,12 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!--
     <CheckBoxPreference
         android:key="delete_readed"
         android:title="@string/pref_delete_readed"
         android:summary="@string/pref_description_delete_readed"
         android:defaultValue="false" />
-
+    -->
 
     <CheckBoxPreference
         android:key="update_start"
