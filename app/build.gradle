@@ -23,8 +23,8 @@ android {
         applicationId "com.liodevel.my_reader"
         minSdkVersion 14
         targetSdkVersion 21
-        versionCode 16
-        versionName "1.6"
+        versionCode 17
+        versionName "1.7"
     }
     /*
     buildTypes {
