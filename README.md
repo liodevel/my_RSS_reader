@@ -1,17 +1,19 @@
 #TODOs Generales
-- Añadir feeds locales como collections
-    - España
-    - Catalunya
-    - Russia
+
 - (postpuesto, no parece problemático), Implementar timeout para la actualización de noticias, que no se quede pillado cuando no hay cobertura.
 - Implementar - Abrir app -vista de añadir Feed-  para guardar un feed clickado.
 - (postpuesto)Implementar importación desde Feedly.
 
 
-#TODOs 1.6 Dátil
+#TODOs 1.7 Espárrago
 
-- Marcar las noticias guardadas para que no se puedan guardar 2 veces
-
+- Error pantalla Settings en tablets.
+- Añadir feeds locales como collections:
+    - España
+    - Catalunya
+    - Russia
+- Evaluar la opción de abrir el link en un WebView dentro de la aplicación.
+- Guardar los arrays de noticias correctamente, a veces no se guardan si no se sale de la aplicación.
 
 
 # 1.6 Dátil
