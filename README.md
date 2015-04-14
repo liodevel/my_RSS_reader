@@ -14,6 +14,9 @@
     - Russia
 - Evaluar la opción de abrir el link en un WebView dentro de la aplicación.
 - Guardar los arrays de noticias correctamente, a veces no se guardan si no se sale de la aplicación.
+- Cambiar animación de borrar noticia en la vista de noticia.
+- Agilidad al actualizar la lista, da muchos saltos.
+- Mirar por qué a veces no guarda la noticia.
 
 
 # 1.6 Dátil
