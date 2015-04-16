@@ -17,6 +17,7 @@
 - Cambiar animación de borrar noticia en la vista de noticia.
 - Agilidad al actualizar la lista, da muchos saltos.
 - Mirar por qué a veces no guarda la noticia.
+- Añadir Splash Screen.
 
 
 # 1.6 Dátil
