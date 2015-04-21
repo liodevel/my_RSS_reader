@@ -77,6 +77,8 @@
     <string name="news">Notícies</string>
     <string name="title_activity_saved_news">Notícies desades</string>
     <string name="article_saved">Article guardat</string>
+    <string name="title_NewsSpain">Espanya</string>
+    <string name="title_section21">Espanya</string>
 
 
 </resources>

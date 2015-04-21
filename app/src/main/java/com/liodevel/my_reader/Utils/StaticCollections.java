@@ -292,6 +292,28 @@ public class StaticCollections {
     }
 
 
+    static ArrayList<ItemCollection> collectionNewsSpain = new ArrayList<>();
+
+    public static void updateCollectionNewsSpain() {
+        collectionNewsSpain.add(new ItemCollection("Menéame", "http://meneame.feedsportal.com/rss", "Agregador de noticias", "News Spain", false));
+        collectionNewsSpain.add(new ItemCollection("El País", "http://ep00.epimg.net/rss/elpais/portada.xml", "Portada del diario El País", "News Spain", false));
+        collectionNewsSpain.add(new ItemCollection("La Vanguardia", "http://feeds.feedburner.com/lavanguardia/home", "Portada del diario La Vanguardia", "News Spain", false));
+        collectionNewsSpain.add(new ItemCollection("El Periódico", "http://www.elperiodico.com/es/rss/rss_portada.xml", "Portada de El Periódico", "News Spain", false));
+        collectionNewsSpain.add(new ItemCollection("eldiario.es", "http://eldiario.es.feedsportal.com/rss", "Portada de eldiario.es", "News Spain", false));
+        collectionNewsSpain.add(new ItemCollection("Público", "http://www.publico.es/rss/", "Portada de publico.es", "News Spain", false));
+        collectionNewsSpain.add(new ItemCollection("El Confidencial", "http://rss.elconfidencial.com/espana/", "Portada de El Confidencial", "News Spain", false));
+        collectionNewsSpain.add(new ItemCollection("Marca", "http://marca.feedsportal.com/rss/portada.xml", "Diario deportivo Marca", "News Spain", false));
+        collectionNewsSpain.add(new ItemCollection("Sport", "http://www.sport.es/es/rss/last_news/rss.xml", "Diario deportivo Sport", "News Spain", false));
+        collectionNewsSpain.add(new ItemCollection("El Mundo Today", "http://www.elmundotoday.com/feed/", "Portada de El Mundo Today (Humor)", "News Spain", false));
+        collectionNewsSpain.add(new ItemCollection("Gizmodo ES", "http://feeds.gawker.com/esgizmodo/full", "Gizmodo (Tecnología)", "News Spain", false));
+        collectionNewsSpain.add(new ItemCollection("Engadget ES", "http://es.engadget.com/rss.xml", "Engadget (Tecnología)", "News Spain", false));
+
+    }
+
+
+
+
+
     public static ArrayList<ItemCollection> getCollectionArt() {
         return collectionArt;
     }
@@ -450,6 +472,14 @@ public class StaticCollections {
 
     public static void setCollectionTechnology(ArrayList<ItemCollection> collectionTechnology) {
         StaticCollections.collectionTechnology = collectionTechnology;
+    }
+
+    public static ArrayList<ItemCollection> getCollectionNewsSpain() {
+        return collectionNewsSpain;
+    }
+
+    public static void setCollectionNewsSpain(ArrayList<ItemCollection> collectionNewsSpain) {
+        StaticCollections.collectionNewsSpain = collectionNewsSpain;
     }
 }
 

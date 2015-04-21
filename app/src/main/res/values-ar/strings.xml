@@ -68,6 +68,8 @@
     <string name="news">تغذية الأخبار</string>
     <string name="title_activity_saved_news">أخبار المخزنة</string>
     <string name="article_saved">المادة المحفوظة</string>
+    <string name="title_NewsSpain">Spain</string>
+    <string name="title_section21">Spain</string>
 
 
 </resources>

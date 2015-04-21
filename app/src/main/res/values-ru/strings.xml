@@ -67,5 +67,7 @@
     <string name="news">новости</string>
     <string name="title_activity_saved_news">хранятся новости</string>
     <string name="article_saved">Статья сохранены</string>
+    <string name="title_NewsSpain">Spain</string>
+    <string name="title_section21">Spain</string>
 
 </resources>

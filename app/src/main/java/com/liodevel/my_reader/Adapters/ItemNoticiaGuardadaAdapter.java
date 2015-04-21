@@ -196,6 +196,10 @@ public class ItemNoticiaGuardadaAdapter extends ArrayAdapter<Object> {
                 placeHolder.category.setText(R.string.fa_cogs);
                 //placeHolder.category.setTextColor(Color.parseColor("#132245"));
                 break;
+            case"News Spain":
+                placeHolder.category.setText(R.string.fa_globe);
+                //placeHolder.category.setTextColor(Color.parseColor("#132245"));
+                break;
         }
 
         noticias.get(position).setIcono(placeHolder.category.getText().toString());

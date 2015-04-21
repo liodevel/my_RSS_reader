@@ -9,7 +9,6 @@
 
 - Error pantalla Settings en tablets.
 - Añadir feeds locales como collections:
-    - España
     - Catalunya
     - Russia
 - Evaluar la opción de abrir el link en un WebView dentro de la aplicación.
@@ -22,6 +21,8 @@
 - Cambiar animación de borrar noticia en la vista de noticia.
 - Mejorar animación de cambiar de noticia.
 - Añadir Toast al guardar noticia.
+- Añadir feeds locales como collections:
+    - España
 
 
 # 1.6 Dátil

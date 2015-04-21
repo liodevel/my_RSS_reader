@@ -436,6 +436,7 @@ public class RSSUtils {
         for (ItemCollection item:StaticCollections.getCollectionStyle()){ if (item.isAdded()){ret = true;}}
         for (ItemCollection item:StaticCollections.getCollectionTV()){ if (item.isAdded()){ret = true;}}
         for (ItemCollection item:StaticCollections.getCollectionTechnology()){ if (item.isAdded()){ret = true;}}
+        for (ItemCollection item:StaticCollections.getCollectionNewsSpain()){ if (item.isAdded()){ret = true;}}
 
 
         return ret;

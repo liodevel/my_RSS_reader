@@ -215,6 +215,13 @@ public class CollectionActivity extends Activity
                             StaticCollections.getCollectionTechnology().get(position).setAdded(true);
                         }
                         break;
+                    case 20:
+                        if (StaticCollections.getCollectionNewsSpain().get(position).isAdded()) {
+                            StaticCollections.getCollectionNewsSpain().get(position).setAdded(false);
+                        } else {
+                            StaticCollections.getCollectionNewsSpain().get(position).setAdded(true);
+                        }
+                        break;
                     default:
                 }
                 adapter.notifyDataSetChanged();
@@ -338,6 +345,11 @@ public class CollectionActivity extends Activity
                     lista.setAdapter(adapter);
                     adapter.notifyDataSetChanged();
                     break;
+                case 20:
+                    adapter = new ItemCollectionAdapter(this, StaticCollections.getCollectionNewsSpain());
+                    lista.setAdapter(adapter);
+                    adapter.notifyDataSetChanged();
+                    break;
                 default:
             }
             listaActiva = position;
@@ -410,6 +422,9 @@ public class CollectionActivity extends Activity
                 break;
             case 20:
                 mTitle = getString(R.string.title_section20);
+                break;
+            case 21:
+                mTitle = getString(R.string.title_section21);
                 break;
         }
     }
@@ -580,6 +595,10 @@ public class CollectionActivity extends Activity
         Gson gsonTechnology = new Gson();
         String jsonArrayTechnology = gsonTechnology.toJson(StaticCollections.getCollectionTechnology());
         editor.putString("array_technology", jsonArrayTechnology);
+
+        Gson gsonNewsSpain = new Gson();
+        String jsonArrayNewsSpain = gsonNewsSpain.toJson(StaticCollections.getCollectionNewsSpain());
+        editor.putString("array_news_spain", jsonArrayNewsSpain);
 
 
         editor.commit();

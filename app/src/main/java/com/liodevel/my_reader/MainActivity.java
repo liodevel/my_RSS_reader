@@ -577,6 +577,12 @@ public class MainActivity extends Activity {
                 }
             }
 
+            for (ItemCollection URLCollection : StaticCollections.getCollectionNewsSpain()) {
+                if (URLCollection.isAdded()) {
+                    feed = feed.concat(getRssFeed(URLCollection.getUrl(), "News Spain"));
+                }
+            }
+
             //Log.i("-----FEED", feed);
             return feed;
         }
@@ -1083,6 +1089,22 @@ public class MainActivity extends Activity {
         } else {
             StaticCollections.updateCollectionTechnology();
         }
+
+        // NEWS SPAIN
+        Gson gsonNewsSpain = new Gson();
+        String jsonNewsSpain = this.prefs.getString("array_news_spain", "");
+        Type typeNewsSpain = new TypeToken<ArrayList<ItemCollection>>() {
+        }.getType();
+        ArrayList<ItemCollection> arrayListNewsSpain = gsonNewsSpain.fromJson(jsonNewsSpain, typeNewsSpain);
+
+        StaticCollections.updateCollectionNewsSpain();
+
+        Log.i("---ARRAY", "" + arrayListNewsSpain.size());
+        Log.i("---ARRAY_COL", "" + StaticCollections.getCollectionNewsSpain().size());
+        if (arrayListNewsSpain != null && arrayListNewsSpain.size() > 0 && arrayListNewsSpain.size() >= StaticCollections.getCollectionNewsSpain().size()) {
+            StaticCollections.setCollectionNewsSpain(arrayListNewsSpain);
+        }
+
 
     }
 

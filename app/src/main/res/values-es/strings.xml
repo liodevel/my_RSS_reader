@@ -79,5 +79,7 @@
     <string name="news">Noticias</string>
     <string name="title_activity_saved_news">Noticias guardadas</string>
     <string name="article_saved">Artículo guardado</string>
+    <string name="title_NewsSpain">España</string>
+    <string name="title_section21">España</string>
 
 </resources>
