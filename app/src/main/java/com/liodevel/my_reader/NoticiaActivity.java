@@ -19,7 +19,9 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.webkit.WebView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
@@ -31,6 +33,7 @@ public class NoticiaActivity extends Activity {
 
     NetworkImageView imagenNoticiaNetworkImg;
     TextView tituloNoticiaView, botonAbrir, botonGuardar, contenidoNoticiaView, iconoView;
+    RelativeLayout layoutNoticia;
     String barraTituloNoticia = "";
     String linkNoticia = "";
     String icono = "";
@@ -66,6 +69,9 @@ public class NoticiaActivity extends Activity {
         this.setTitle(getIntent().getExtras().getString("origenNoticia"));
         actionBarTittle.setTextColor(Color.WHITE);
         actionBarTittle.setTypeface(tf);
+
+        // Layout Noticia
+        layoutNoticia = (RelativeLayout) findViewById(R.id.layout_noticia);
 
         // Título Notícia
         barraTituloNoticia = getIntent().getExtras().getString("tituloNoticia");
@@ -123,6 +129,8 @@ public class NoticiaActivity extends Activity {
                     StaticObjects.getArrayNoticiasGuardadas().add(StaticObjects.getArrayNoticias().get(idNoticia));
                     StaticObjects.getArrayNoticias().get(idNoticia).setGuardada(true);
 
+                    Toast.makeText(context, getResources().getString(R.string.article_saved), Toast.LENGTH_LONG).show();
+
                 } catch (Exception e) {  }
             }
         });
@@ -147,10 +155,10 @@ public class NoticiaActivity extends Activity {
                         finish();
                     } else if (idNoticia < StaticObjects.getArrayNoticias().size()){
                         // Enseñar siguiente
-                        reloadNewNext(idNoticia);
+                        reloadNewNextDelete(idNoticia);
                     } else {
                         // Enseñar anterior
-                        reloadNewPrevious(idNoticia - 1);
+                        reloadNewPreviousDelete(idNoticia - 1);
                     }
                 } catch (Exception e) {  }
             }
@@ -255,38 +263,39 @@ public class NoticiaActivity extends Activity {
         this.barraTituloNoticia = StaticObjects.getArrayNoticias().get(id).getTitulo();
 
         // Animaciones
-        tituloNoticiaView.animate().translationX(-1500).setDuration(200).withEndAction(
+        layoutNoticia.animate().translationX(-1500).setDuration(200).withEndAction(
                 new Runnable() {
                     @Override
                     public void run() {
-                        rePaintTitleNext(idNoticia);
+                        rePaintLayoutNext(idNoticia);
                     }
                 }).start();
+    }
 
-        imagenNoticiaNetworkImg.animate().translationX(-1500).setDuration(200).withEndAction(
-                new Runnable() {
-                    @Override
-                    public void run() {
-                        rePaintWebViewNext(idNoticia);
-                    }
-                }).start();
 
-        contenidoNoticiaView.animate().translationX(-1500).setDuration(200).withEndAction(
+    /**
+     * Recarga la vista de la siguiente noticia al eliminar
+     * @param id id de la noticia a cargar
+     */
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+    void reloadNewNextDelete(int id){
+
+        this.idNoticia = id;
+        this.linkNoticia = StaticObjects.getArrayNoticias().get(id).getLink();
+        this.barraTituloNoticia = StaticObjects.getArrayNoticias().get(id).getTitulo();
+
+        // Animaciones
+        layoutNoticia.animate().scaleX(0).scaleY(0).setDuration(200).withEndAction(
                 new Runnable() {
                     @Override
                     public void run() {
-                        rePaintContenidoNext(idNoticia);
-                    }
-                }).start();
-        iconoView.animate().translationX(-1500).setDuration(200).withEndAction(
-                new Runnable() {
-                    @Override
-                    public void run() {
-                        rePaintIconoNext(idNoticia);
+                        rePaintLayoutNext(idNoticia);
                     }
                 }).start();
 
     }
+
+
 
 
     /**
@@ -301,66 +310,49 @@ public class NoticiaActivity extends Activity {
         this.barraTituloNoticia = StaticObjects.getArrayNoticias().get(id).getTitulo();
 
         // Animaciones
-        tituloNoticiaView.animate().translationX(1500).setDuration(200).withEndAction(
+        layoutNoticia.animate().translationX(1500).setDuration(200).withEndAction(
                 new Runnable() {
                     @Override
                     public void run() {
-                        rePaintTitlePrevious(idNoticia);
-                    }
-                }).start();
-
-        imagenNoticiaNetworkImg.animate().translationX(1500).setDuration(200).withEndAction(
-                new Runnable() {
-                    @Override
-                    public void run() {
-                        rePaintWebViewPrevious(idNoticia);
-                    }
-                }).start();
-
-        contenidoNoticiaView.animate().translationX(1500).setDuration(200).withEndAction(
-                new Runnable() {
-                    @Override
-                    public void run() {
-                        rePaintContenidoPrevious(idNoticia);
-                    }
-                }).start();
-        iconoView.animate().translationX(1500).setDuration(200).withEndAction(
-                new Runnable() {
-                    @Override
-                    public void run() {
-                        rePaintIconoPrevious(idNoticia);
+                        rePaintLayoutPrevious(idNoticia);
                     }
                 }).start();
 
     }
 
+
     /**
-     * Repintar título siguiente
+     * Recarga la vista de la noticia anterior
+     * @param id id de la noticia a cargar
+     */
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+    void reloadNewPreviousDelete(int id){
+
+        this.idNoticia = id;
+        this.linkNoticia = StaticObjects.getArrayNoticias().get(id).getLink();
+        this.barraTituloNoticia = StaticObjects.getArrayNoticias().get(id).getTitulo();
+
+        // Animaciones
+        layoutNoticia.animate().scaleX(0).scaleY(0).setDuration(200).withEndAction(
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        rePaintLayoutPrevious(idNoticia);
+                    }
+                }).start();
+
+    }
+
+
+
+
+
+    /**
+     * Repintar layout siguiente
      * @param id
      */
-    void rePaintTitleNext (int id){
+    void rePaintLayoutNext (int id){
         this.tituloNoticiaView.setText(StaticObjects.getArrayNoticias().get(id).getTitulo());
-        tituloNoticiaView.animate().translationX(1500).setDuration(0).start();
-        tituloNoticiaView.animate().translationX(0).setDuration(200).start();
-        this.setTitle(StaticObjects.getArrayNoticias().get(id).getOrigen());
-    }
-
-    /**
-     * Repintar título anterior
-     * @param id
-     */
-    void rePaintTitlePrevious (int id){
-        this.tituloNoticiaView.setText(StaticObjects.getArrayNoticias().get(id).getTitulo());
-        tituloNoticiaView.animate().translationX(-1500).setDuration(0).start();
-        tituloNoticiaView.animate().translationX(0).setDuration(200).start();
-        this.setTitle(StaticObjects.getArrayNoticias().get(id).getOrigen());
-    }
-
-    /**
-     * Repintar imagen webView siguiente
-     * @param id
-     */
-    void rePaintWebViewNext (int id){
         // Imagen de la noticia
         String imagenNoticia = StaticObjects.getArrayNoticias().get(id).getImagenURL();
         imagenNoticiaNetworkImg.getLayoutParams().height = Math.round(200 * density + 0.5f);
@@ -371,15 +363,23 @@ public class NoticiaActivity extends Activity {
             imagenNoticiaNetworkImg.getLayoutParams().height = 0;
             tituloNoticiaView.bringToFront();
         }
-        imagenNoticiaNetworkImg.animate().translationX(1500).setDuration(0).start();
-        imagenNoticiaNetworkImg.animate().translationX(0).setDuration(200).start();
+        this.contenidoNoticiaView.setText(StaticObjects.getArrayNoticias().get(id).getContenidoFormateado());
+        this.iconoView.setText(StaticObjects.getArrayNoticias().get(id).getIcono());
+
+        layoutNoticia.animate().scaleX(1).scaleY(1).setDuration(0).start();
+        layoutNoticia.animate().translationX(1500).setDuration(0).start();
+        layoutNoticia.animate().translationX(0).setDuration(200).start();
+
+        this.setTitle(StaticObjects.getArrayNoticias().get(id).getOrigen());
     }
 
+
     /**
-     * Repintar imagen webView amterios
+     * Repintar layout anterior
      * @param id
      */
-    void rePaintWebViewPrevious (int id){
+    void rePaintLayoutPrevious (int id){
+        this.tituloNoticiaView.setText(StaticObjects.getArrayNoticias().get(id).getTitulo());
         // Imagen de la noticia
         String imagenNoticia = StaticObjects.getArrayNoticias().get(id).getImagenURL();
         imagenNoticiaNetworkImg.getLayoutParams().height = Math.round(200 * density + 0.5f);
@@ -390,49 +390,16 @@ public class NoticiaActivity extends Activity {
             imagenNoticiaNetworkImg.getLayoutParams().height = 0;
             tituloNoticiaView.bringToFront();
         }
-        imagenNoticiaNetworkImg.animate().translationX(-1500).setDuration(0).start();
-        imagenNoticiaNetworkImg.animate().translationX(0).setDuration(200).start();
-    }
-
-    /**
-     * Repintar contenido siguiente
-     * @param id
-     */
-    void rePaintContenidoNext (int id){
         this.contenidoNoticiaView.setText(StaticObjects.getArrayNoticias().get(id).getContenidoFormateado());
-        contenidoNoticiaView.animate().translationX(1500).setDuration(0).start();
-        contenidoNoticiaView.animate().translationX(0).setDuration(200).start();
-    }
-
-    /**
-     * Repintar contenido anterior
-     * @param id
-     */
-    void rePaintContenidoPrevious (int id){
-        this.contenidoNoticiaView.setText(StaticObjects.getArrayNoticias().get(id).getContenidoFormateado());
-        contenidoNoticiaView.animate().translationX(-1500).setDuration(0).start();
-        contenidoNoticiaView.animate().translationX(0).setDuration(200).start();
-    }
-
-    /**
-     * Repintar icono siguiente
-     * @param id
-     */
-    void rePaintIconoNext (int id){
         this.iconoView.setText(StaticObjects.getArrayNoticias().get(id).getIcono());
-        iconoView.animate().translationX(1500).setDuration(0).start();
-        iconoView.animate().translationX(0).setDuration(200).start();
+
+        layoutNoticia.animate().scaleX(1).scaleY(1).setDuration(0).start();
+        layoutNoticia.animate().translationX(-1500).setDuration(0).start();
+        layoutNoticia.animate().translationX(0).setDuration(200).start();
+
+        this.setTitle(StaticObjects.getArrayNoticias().get(id).getOrigen());
     }
 
-    /**
-     * Repintar icono anterior
-     * @param id
-     */
-    void rePaintIconoPrevious (int id){
-        this.iconoView.setText(StaticObjects.getArrayNoticias().get(id).getIcono());
-        iconoView.animate().translationX(-1500).setDuration(0).start();
-        iconoView.animate().translationX(0).setDuration(200).start();
-    }
 
 
     /**

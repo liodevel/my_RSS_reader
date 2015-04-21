@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     tools:context="com.liodevel.my_reader.Noticia"
     android:animateLayoutChanges="true"
-    android:background="#ffffff">
+    android:background="#ffffff"
+    android:id="@+id/layout_noticia">
 
     <com.android.volley.toolbox.NetworkImageView
         android:id="@+id/imagenNoticia"

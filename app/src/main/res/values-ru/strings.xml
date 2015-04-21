@@ -66,5 +66,6 @@
     <string name="saved_news">хранятся новости</string>
     <string name="news">новости</string>
     <string name="title_activity_saved_news">хранятся новости</string>
+    <string name="article_saved">Статья сохранены</string>
 
 </resources>

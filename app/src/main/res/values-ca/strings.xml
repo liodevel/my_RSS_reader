@@ -76,6 +76,7 @@
     <string name="saved_news">Notícies desades</string>
     <string name="news">Notícies</string>
     <string name="title_activity_saved_news">Notícies desades</string>
+    <string name="article_saved">Article guardat</string>
 
 
 </resources>

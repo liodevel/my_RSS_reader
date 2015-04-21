@@ -38,7 +38,6 @@ import com.liodevel.my_reader.Utils.RSSUtils;
 import com.liodevel.my_reader.Utils.StaticCollections;
 import com.liodevel.my_reader.Utils.StaticObjects;
 
-import io.fabric.sdk.android.Fabric;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
@@ -58,6 +57,8 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.Set;
+
+import io.fabric.sdk.android.Fabric;
 
 /**
  * Actividad Principal
@@ -82,12 +83,15 @@ public class MainActivity extends Activity {
 
     Typeface tf, fa;
 
+    Context context;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_main);
+        context = this;
 
         // Recuperar prederences
         getPreferences();
@@ -200,6 +204,16 @@ public class MainActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
                 Log.i("LISTA", "Pulsado: " + position);
+
+                /// Guardar Preferences
+                SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+                SharedPreferences.Editor editor = sharedPrefs.edit();
+                // Array de Noticias
+                Gson gson = new Gson();
+                String jsonArrayNoticias = gson.toJson(StaticObjects.getArrayNoticias());
+                editor.putString("array_noticias", jsonArrayNoticias);
+                Log.i("--- PREFS", "array_noticias: " + jsonArrayNoticias);
+                editor.commit();
 
                 // Preparar envio a pantalla Noticias
                 noticiaActivity.putExtra("httpContent", StaticObjects.getArrayNoticias().get(position).getDescripcion());
@@ -339,6 +353,17 @@ public class MainActivity extends Activity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
+
+        /// Guardar Preferences
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = sharedPrefs.edit();
+        // Array de Noticias
+        Gson gson = new Gson();
+        String jsonArrayNoticias = gson.toJson(StaticObjects.getArrayNoticias());
+        editor.putString("array_noticias", jsonArrayNoticias);
+        Log.i("--- PREFS", "array_noticias: " + jsonArrayNoticias);
+        editor.commit();
+
         // Click en Settings
         if (id == R.id.action_settings) {
             currentActivity.startActivity(new Intent(currentActivity, SettingsActivity.class));
@@ -353,12 +378,9 @@ public class MainActivity extends Activity {
             StaticObjects.getArrayNoticias().clear();
             // StaticObjects.setUltimaActualizacion(System.currentTimeMillis());
 
-            /// Guardar Array de Noticias en Preferences
-            SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-            SharedPreferences.Editor editor = sharedPrefs.edit();
-
-            Gson gson = new Gson();
-            String jsonArrayNoticias = gson.toJson(StaticObjects.getArrayNoticias());
+            // Guardar Array de Noticias vacias
+            gson = new Gson();
+            jsonArrayNoticias = gson.toJson(StaticObjects.getArrayNoticias());
             editor.putString("array_noticias", jsonArrayNoticias);
             Log.i("--- PREFS", "array_noticias: " + jsonArrayNoticias);
 
