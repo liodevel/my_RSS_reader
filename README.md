@@ -15,6 +15,7 @@
 - Agilidad al actualizar la lista, da muchos saltos.
 - Mirar por qué a veces no guarda la noticia.
 - Añadir Splash Screen.
+- Cuando se actualiza la lista de noticias, actualizar la hora de actualización.
 
 # 1.7 Espárrago
 - Guardar los arrays de noticias correctamente, a veces no se guardan si no se sale de la aplicación.
